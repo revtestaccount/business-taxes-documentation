@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 
-    <title>PAYE Modernisation</title>
+    <title>Business Taxes Documentation</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -101,7 +101,7 @@ ul {
                                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
                                                 <strong>Document Description</strong>
                                             </div>
-                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-2">
                                                 <strong>Type</strong>
                                             </div>
                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3"style="padding: 0rem !important;">
@@ -121,13 +121,7 @@ ul {
                                             </sup>
                                         </div>
                                         <a name="{{document.anchor}}"> </a>
-                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
-                                            <a data-ng-href="{{document.link}}" target="_blank" data-ng-click="vm.sendData([document.category, document.description])">{{document.type}}</a>
-                                            <sup data-ng-if="document.explainer">
-                                                {{document.explainerIndex}}
-                                            </sup>
-                                        </div>
-                                        <a name="{{document.anchor}}"> </a>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-2">{{document.type}}</div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3"style="padding: 0rem !important;">{{document.environment}}</div>
                                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3"style="padding left: 0rem !important;">{{document.dateLastUpdated}}</div>
                                     </div>
