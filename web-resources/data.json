@@ -350,6 +350,24 @@
 		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of Form11",
 		"cards": [
 			{
+				"link": "form11/pit1/v21/form11-v21-schema.xsd",
+				"description": "Form11 Schema v21",
+				"anchor": "Form11_Schema_v21",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2020",
+				"dateLastUpdated": "17/11/2020",
+				"category": "download"
+			},
+			{
+				"link": "form11/pit1/v21/form11v21notes.pdf",
+				"description": "Form11 Notes v21",
+				"anchor": "Form11_Notes_v21",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2020",
+				"dateLastUpdated": "17/11/2020",
+				"category": "download"
+			},
+			{
 				"link": "form11/pit1/v20/form11-v20-schema.xsd",
 				"description": "Form11 Schema v20",
 				"anchor": "Form11_Schema_v20",
