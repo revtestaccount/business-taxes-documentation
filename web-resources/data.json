@@ -715,6 +715,24 @@
 		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of Form1-Firms",
 		"cards": [
 			{
+				"link": "form1firms/pit1/v21/form1firms-v21-schema.xsd",
+				"description": "Form1-Firms Schema v21",
+				"anchor": "Form1-Firms_Schema_v21",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2020",
+				"dateLastUpdated": "TBC",
+				"category": "download"
+			},
+			{
+				"link": "form1firms/pit1/v21/form1firmsv21notes.pdf",
+				"description": "Form1-Firms Notes v21",
+				"anchor": "Form1-Firms_Notes_v21",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2020",
+				"dateLastUpdated": "TBC",
+				"category": "download"
+			},
+			{
 				"link": "form1firms/pit1/v20/form1firms-v20-schema.xsd",
 				"description": "Form1-Firms Schema v20",
 				"anchor": "Form1-Firms_Schema_v20",
@@ -973,6 +991,24 @@
 		"anchor": "PIT",
 		"cardText": "<p>This section provides documentation which advises users on the available schema & notes for each available version of Form1-Trusts & Estates",
 		"cards": [
+			{
+				"link": "form1/pit1/v14/form1-v14-schema.xsd",
+				"description": "Form1 Schema v14",
+				"anchor": "Form1_Schema_v14",
+				"type": "Schema",
+				"environment": "Tax periods ending in 2020",
+				"dateLastUpdated": "TBC",
+				"category": "download"
+			},
+			{
+				"link": "form1/pit1/v14/form1v14notes.pdf",
+				"description": "Form1 Notes v14",
+				"anchor": "Form1_Notes_v14",
+				"type": "PDF",
+				"environment": "Tax periods ending in 2020",
+				"dateLastUpdated": "TBC",
+				"category": "download"
+			},
 			{
 				"link": "form1/pit1/v13/form1-v13-schema.xsd",
 				"description": "Form1 Schema v13",

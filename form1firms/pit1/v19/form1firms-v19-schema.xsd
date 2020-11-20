@@ -79,7 +79,7 @@ iv:			Partnership:Details
 				<xsd:element name="PartnershipParticulars">
 					<xsd:complexType>
 						<xsd:sequence>
-							<xsd:element name="IrishResidentPartner" maxOccurs="100">
+							<xsd:element name="IrishResidentPartner" minOccurs="2" maxOccurs="100">
 								<xsd:complexType>
 									<xsd:attribute name="ppsn" type="xsd:string" use="optional"/>
 									<xsd:attribute name="shareofcase" type="ros:positive8" use="optional"/>
@@ -94,7 +94,7 @@ iv:			Partnership:Details
 									<xsd:attribute name="basisofdistperiodend" type="xsd:decimal" use="optional"/>
 								</xsd:complexType>
 							</xsd:element>
-							<xsd:element name="NonIrishResidentPartner" maxOccurs="20">
+							<xsd:element name="NonIrishResidentPartner" minOccurs="0"  maxOccurs="20">
 								<xsd:complexType>
 									<xsd:attribute name="ppsn" type="xsd:string" use="optional"/>
 									<xsd:attribute name="name" type="ros:string500" use="optional"/>
