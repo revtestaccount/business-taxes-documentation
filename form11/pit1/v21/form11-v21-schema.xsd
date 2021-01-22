@@ -299,7 +299,6 @@ __________________________________________________________
 						<xsd:attribute name="qualifyFarmerReliefPriorYears" type="ros:positive10" use="optional"/>	
 					</xsd:complexType>
 				</xsd:element>
-
 				<xsd:element name="TradeCapital" minOccurs="0">
 					<xsd:complexType>
 						<xsd:sequence>
@@ -395,8 +394,6 @@ __________________________________________________________
 									<xsd:attribute name="deductionforincreasecarbontax" type="ros:positive10" use="optional"/>
 									<xsd:attribute name="otheraddbacks" type="ros:positive10" use="optional"/>
 									<xsd:attribute name="otherdeductions" type="ros:positive10" use="optional"/>
-									<xsd:attribute name="amountnetprofitafterajust" type="ros:positive10" use="optional"/>
-									<xsd:attribute name="amountnetlossafterajust" type="ros:positive10" use="optional"/>
 								</xsd:complexType>
 							</xsd:element>
 							<xsd:element name="profitAssessable" minOccurs="0">
