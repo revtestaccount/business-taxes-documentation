@@ -414,7 +414,7 @@ __________________________________________________________
 									<xsd:attribute name="govnreceipts" type="ros:positive10" use="optional"/>
 									<xsd:attribute name="otherincome" type="ros:positive10" use="optional"/>
 									<xsd:attribute name="purchases" type="ros:positive10" use="optional"/>
-									<xsd:attribute name="tradeprofit" type="ros:positive10" use="optional"/>
+									<xsd:attribute name="tradeprofit" type="ros:integer10" use="optional"/>
 									<xsd:attribute name="staffcosts" type="ros:positive10" use="optional"/>
 									<xsd:attribute name="subcontractors" type="ros:positive10" use="optional"/>
 									<xsd:attribute name="consproffees" type="ros:positive10" use="optional"/>
