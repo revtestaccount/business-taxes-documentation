@@ -6,23 +6,6 @@
 		"cards": [
 			{
 				"link": "ct1/pit1/v22/formct1-v22-schema.xsd",
-				"description": "CT1 Schema test",
-				"anchor": "CT1_Schema_v22test",
-				"type": "Schema",
-				"environment": "Tax periods ending in 2022",
-				"dateLastUpdated": "date",
-				"category": "download"
-			},
-			{
-				"link": "ct1/pit1/v22/ct1v22notes.pdf",
-				"description": "CT1 Notes test",
-				"anchor": "CT1_Notes_v22test",
-				"type": "PDF",
-				"environment": "Tax periods ending in 2022",
-				"dateLastUpdated": "date",
-				"category": "download"
-			},{
-				"link": "ct1/pit1/v22/formct1-v22-schema.xsd",
 				"description": "CT1 Schema v22",
 				"anchor": "CT1_Schema_v22",
 				"type": "Schema",
