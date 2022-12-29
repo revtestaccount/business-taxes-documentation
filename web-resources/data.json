@@ -28,7 +28,7 @@
 				"anchor": "CT1_Schema_v21",
 				"type": "Schema",
 				"environment": "Tax periods ending in 2021",
-				"dateLastUpdated": "13/08/2022",
+				"dateLastUpdated": "19/12/2022",
 				"category": "download"
 			},
 			{
@@ -37,7 +37,7 @@
 				"anchor": "CT1_Notes_v21",
 				"type": "PDF",
 				"environment": "Tax periods ending in 2021",
-				"dateLastUpdated": "13/08/2022",
+				"dateLastUpdated": "19/12/2022",
 				"category": "download"
 			},
 			{
