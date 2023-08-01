@@ -6,10 +6,10 @@
 		"cards": [
 			{
 				"link": "ct1/pit1/v23/formct1-v23-schema.xsd",
-				"description": "CT1 Schema v26",
-				"anchor": "CT1_Schema_v26",
+				"description": "CT1 Schema v27",
+				"anchor": "CT1_Schema_v27",
 				"type": "Schema",
-				"environment": "test",
+				"environment": "test2",
 				"dateLastUpdated": "04/04/2020",
 				"category": "download"
 			},
