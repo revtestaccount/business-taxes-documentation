@@ -54,6 +54,65 @@
 ul {
   padding-left: 3em;
 }
+
+.green-panel-shadow {
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+      background-color: #025e63e;
+      padding: 1rem;
+      float: left;
+      width: 100%;
+      margin-top: .5rem;
+      margin-bottom: 2rem;
+  }
+  .list-heading{
+      display: inline-block;
+      font-size: 1.1rem;
+  }
+  .list-container a{
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+  }
+  .list-section{
+      float: left;
+      width: 100%;
+      margin-top: 1rem;
+  }
+  .list-toggle{
+      display: inline-block;
+  }
+  .list-item {
+      width: 100%;
+      background-color: #fff;
+      padding: 1rem .5rem;
+      float: left;
+      border-left: 5px solid #24C1E9;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+      -webkit-transition: all ease .3s;
+      transition: all ease .3s;
+      margin-bottom: .5rem;
+  }
+  .list-item:hover {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+    -webkit-transition: all ease .3s;
+    transition: all ease .3s;
+  }
+  .list-item:last-child {
+    margin-bottom: 0;
+}
+  #summary{
+      min-height: 10rem;
+  }
+  @media screen and (max-width: 600px) {
+      .col-xxs-12{
+          float: left;
+          width: 100%;
+          position: relative;
+          min-height: 1px;
+          padding-right: 15px;
+          padding-left: 15px;
+      }
+  }
 </style>
 
 </head>
@@ -90,6 +149,76 @@ ul {
                         <!--                        </p>-->
                     </div>
                 </div>
+
+
+                <div class="row"><div class="green-panel-shadow">
+                    <div class="row">
+
+
+                <div class="list-container">
+                    <a href="#files" class="list-toggle" data-toggle="collapse">
+                        <span class="icon-expando-opened rev" aria-hidden="true"></span>
+                        <h4 class="list-heading">CT1 - Schema & Notes</h4>
+                    </a>
+                    <div id="files" class="list-section collapse in">
+                        <div>
+                            <div class="list-item">list item 1</div>
+                            <div class="list-item">list item 2</div>
+                            <div class="list-item">list item 3</div>
+                            <div class="list-item">list item 4</div>
+
+                            </div>
+                        </div>
+
+                <div class="list-container">
+                    <a href="#files" class="list-toggle" data-toggle="collapse">
+                        <span class="icon-expando-opened rev" aria-hidden="true"></span>
+                        <h4 class="list-heading">Form11 - Schema & Notes</h4>
+                    </a>
+                    <div id="files" class="list-section collapse in">
+                        <div>
+                            <div class="list-item">list item 1</div>
+                            <div class="list-item">list item 2</div>
+                            <div class="list-item">list item 3</div>
+                            <div class="list-item">list item 4</div>
+
+                        </div>
+                    </div>
+
+                <div class="list-container">
+                    <a href="#files" class="list-toggle" data-toggle="collapse">
+                        <span class="icon-expando-opened rev" aria-hidden="true"></span>
+                        <h4 class="list-heading">Form1 - Forms - Schema & Notes</h4>
+                    </a>
+                    <div id="files" class="list-section collapse in">
+                        <div>
+                            <div class="list-item">list item 1</div>
+                            <div class="list-item">list item 2</div>
+                            <div class="list-item">list item 3</div>
+                            <div class="list-item">list item 4</div>
+
+                        </div>
+                    </div>
+
+                    <div class="list-container">
+                        <a href="#files" class="list-toggle" data-toggle="collapse">
+                            <span class="icon-expando-opened rev" aria-hidden="true"></span>
+                            <h4 class="list-heading">Form1 - Trusts & Estates - Schema & Notes</h4>
+                        </a>
+                        <div id="files" class="list-section collapse in">
+                            <div>
+                                <div class="list-item">list item 1</div>
+                                <div class="list-item">list item 2</div>
+                                <div class="list-item">list item 3</div>
+                                <div class="list-item">list item 4</div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
                 <!-- Looping through data.json -->
                 <div data-ng-controller="DocumentationController as vm">
                     <div class="row">
