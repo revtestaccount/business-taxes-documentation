@@ -55,11 +55,29 @@ ul {
   padding-left: 3em;
 }
 
+body{
+
+margin: 0;
+font-family: ;
+color: white;
+
+
+
 .accordion {
 
   max-width: 400px;
 
-  margin: 0 auto;
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+
+  color: white;
+
+  position: fixed;
+
+  left: 0;
 
 }
 
@@ -69,7 +87,9 @@ ul {
 
   border: 1px solid #ccc;
 
-  margin-bottom: 5px;
+  margin: 0;
+
+  padding: 0;
 
 }
 
@@ -83,9 +103,21 @@ ul {
 
   cursor: pointer;
 
+  font-weight: bold;
+
+  display: flex;
+
+  align-items: center;
+
 }
 
+.accordion-header::before {
 
+    content: ' ';
+
+    margin-right: 8px;
+
+  }
 
 .accordion-content {
 
@@ -93,13 +125,15 @@ ul {
 
   display: none;
 
+  color: #f1f1f1;
+
 }
 
 
 
 /* Styling to show/hide accordion content when active */
 
-.active {
+.active .accordion-content {
 
   display: block;
 
