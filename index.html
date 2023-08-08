@@ -14,13 +14,57 @@
     <link href="web-resources/css/myDocs.css" rel="stylesheet">
     <link href="web-resources/css/angular-cookie-law.min.css" rel="stylesheet">
 
-    <script src="script.js"></script>
+   <!-- <script src="script.js"></script> -->
 
     <script
             src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
     <script
             src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-sanitize.min.js"></script>
     <script src="web-resources/angular-cookie-law.min.js"></script>
+
+
+    <script>
+        function toggleAccordion(index) {
+
+  const accordionContents = document.querySelectorAll(".accordion-content");
+
+  const accordionHeader = document.querySelectorAll(".accordion-header");
+
+
+
+  accordionContents.forEach((content, i) => {
+
+    if (i === index - 1) {
+
+      content.classList.toggle("active");
+
+    } else {
+
+      content.classList.remove("active");
+
+    }
+
+  });
+
+
+
+  accordionHeader.forEach((header, i) => {
+
+    if (i === index - 1) {
+
+      header.classList.toggle("active");
+
+    } else {
+
+      header.classList.remove("active");
+
+    }
+
+  });
+
+}
+
+    </script>
 
     <script>
         angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
@@ -71,7 +115,7 @@ color: white;
 
   margin: 0;
 
-  padding-left: 3em;
+ <!-- padding-left: 3em; -->
 
   list-style: none;
 
