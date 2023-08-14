@@ -183,17 +183,71 @@ color: white;
                 <div ng-controller="AccordionController">
                 <div class="accordion" ng-repeat="section in accordionSections">
                     <div class="accordion-header" ng-click="toggleSection(section)">
-                        {{ section.heading }}
+                        {{ section.CT1[0].title }}
+
                     </div>
 
                     <div class="accordion-content" ng-show="section.expanded">
-                        <p>{{ section.description }}</p>
+                        <p>{{ {{ section.CT1[0].cardText }} }}</p>
 
                         <ul>
                             <li ng-repeat="item in section.items">{{ item }} </li>
                         </ul>
                     </div>
                 </div>
+
+                    <div ng-controller="AccordionController">
+                        <div class="accordion" ng-repeat="section in accordionSections">
+                            <div class="accordion-header" ng-click="toggleSection(section)">
+                                {{ section.Form11[0].title }}
+
+                            </div>
+
+                            <div class="accordion-content" ng-show="section.expanded">
+                                <p>{{ {{ section.Form11[0].cardText }} }}</p>
+
+                                <ul>
+                                    <li ng-repeat="item in section.items">{{ item }} </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                <div ng-controller="AccordionController">
+                    <div class="accordion" ng-repeat="section in accordionSections">
+                        <div class="accordion-header" ng-click="toggleSection(section)">
+                            {{ section.Form1-Firms[0].title }}
+
+                        </div>
+
+                        <div class="accordion-content" ng-show="section.expanded">
+                            <p>{{ {{ section.Form1-Firms[0].cardText }} }}</p>
+
+                            <ul>
+                                <li ng-repeat="item in section.items">{{ item }} </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div ng-controller="AccordionController">
+                        <div class="accordion" ng-repeat="section in accordionSections">
+                            <div class="accordion-header" ng-click="toggleSection(section)">
+                                {{ section.Form1-Trusts & Estates[0].title }}
+
+                            </div>
+
+                            <div class="accordion-content" ng-show="section.expanded">
+                                <p>{{ {{ section.Form1-Trusts & Estates[0].cardText }} }}</p>
+
+                                <ul>
+                                    <li ng-repeat="item in section.items">{{ item }} </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+                    //do 4 of the above
 
                 </div>
 
