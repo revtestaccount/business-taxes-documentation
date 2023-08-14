@@ -14,16 +14,14 @@
     <link href="web-resources/css/myDocs.css" rel="stylesheet">
     <link href="web-resources/css/angular-cookie-law.min.css" rel="stylesheet">
 
-   <script src="C:\Projects\business-taxes-documentation\business-taxes-documentation\src\main\resources\script.js"></script>
+    <link rel="stylesheet" href="style.css">
 
 
-    <!--<script src="script.js"></script>-->
-
-    <script
-            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
-    <script
-            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-sanitize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-sanitize.min.js"></script>
     <script src="web-resources/angular-cookie-law.min.js"></script>
+
+    <script src="app.js"></script>
 
     <script>
         angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
@@ -48,6 +46,19 @@
             event_label = params[1];
             gtag('event', category, {'event_category': category,   'event_label': event_label });
         }
+
+
+        angular.module('accordionApp',[])
+        .controller('AccordionController', function($scope, $http) {
+            $http.get('data.json').then(function(response) {
+                $scope.accordionSections = response.data;
+            });
+
+            $scope.toggleSection = function(section) {
+                section.expanded = !section.expanded;
+
+            };
+        }};
     </script>
     <style>
 .grade {
@@ -81,18 +92,6 @@ color: white;
   color: white;
 
   position: static;
-
-}
-
-
-
-.accordion-item {
-
-  border: 1px solid #ccc;
-
-  margin: 0;
-
-  padding: 0;
 
 }
 
@@ -181,59 +180,24 @@ color: white;
                     </div>
                 </div>
 
-                <!-- <body> -->
-
-                <div class="accordion">
-
-                    <div class="accordion-item">
-
-                        <div class="accordion-header" onclick="toggleAccordion(1)">CT1 - Schema & Notes</div>
-
-                        <div class="accordion-content">
-
-                            <p>This section provides documentation which advises users on the available schema & notes for each available version of CT1</p>
-
-                        </div>
-
+                <div ng-controller="AccordionController">
+                <div class="accordion" ng-repeat="section in accordionSections">
+                    <div class="accordion-header" ng-click="toggleSection(section)">
+                        {{ section.heading }}
                     </div>
 
-                    <div class="accordion-item">
+                    <div class="accordion-content" ng-show="section.expanded">
+                        <p>{{ section.description }}</p>
 
-                        <div class="accordion-header" onclick="toggleAccordion(2)">Form11 - Schema & Notes</div>
-
-                        <div class="accordion-content">
-
-                            <p>This section provides documentation which advises users on the available schema & notes for each available version of Form11</p>
-
-                        </div>
-
+                        <ul>
+                            <li ng-repeat="item in section.items">{{ item }} </li>
+                        </ul>
                     </div>
-
-                    <div class="accordion-item">
-
-                        <div class="accordion-header" onclick="toggleAccordion(3)">Form1-Firms - Schema & Notes</div>
-
-                        <div class="accordion-content">
-
-                            <p>This section provides documentation which advises users on the available schema & notes for each available version of Form1-Firms</p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="accordion-item">
-
-                        <div class="accordion-header" onclick="toggleAccordion(4)">Form1-Trusts & Estates - Schema & Notes</div>
-
-                        <div class="accordion-content">
-
-                            <p>This section provides documentation which advises users on the available schema & notes for each available version of Form1-Trusts & Estates</p>
-
-                        </div>
-
-                    </div>
+                </div>
 
                 </div>
+
+
 
 
 
