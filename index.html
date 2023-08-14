@@ -51,11 +51,11 @@
         angular.module('accordionApp',[])
         .controller('AccordionController', function($scope, $http) {
             $http.get('data.json').then(function(response) {
-                $scope.accordionSections = response.data;
+                $scope.accordionData = response.data;
             });
 
-            $scope.toggleSection = function(section) {
-                section.expanded = !section.expanded;
+            $scope.toggleData = function(data) {
+                data.expanded = !data.expanded;
 
             };
         }};
@@ -181,73 +181,69 @@ color: white;
                 </div>
 
                 <div ng-controller="AccordionController">
-                <div class="accordion" ng-repeat="section in accordionSections">
-                    <div class="accordion-header" ng-click="toggleSection(section)">
-                        {{ section.CT1[0].title }}
+                <div class="accordion" ng-repeat="data in accordionData">
+                    <div class="accordion-header" ng-click="toggleData(data)">
+                        {{ data.CT1[0].title }}
 
                     </div>
 
-                    <div class="accordion-content" ng-show="section.expanded">
-                        <p>{{ {{ section.CT1[0].cardText }} }}</p>
+                    <div class="accordion-content" ng-show="data.expanded">
+                        <p>{{ {{ data.CT1[0].cardText }} }}</p>
 
                         <ul>
-                            <li ng-repeat="item in section.items">{{ item }} </li>
+                            <li ng-repeat="item in data.items">{{ item }} </li>
                         </ul>
                     </div>
                 </div>
 
                     <div ng-controller="AccordionController">
-                        <div class="accordion" ng-repeat="section in accordionSections">
-                            <div class="accordion-header" ng-click="toggleSection(section)">
-                                {{ section.Form11[0].title }}
+                        <div class="accordion" ng-repeat="data in accordionData">
+                            <div class="accordion-header" ng-click="toggleData(data)">
+                                {{ data.Form11[0].title }}
 
                             </div>
 
-                            <div class="accordion-content" ng-show="section.expanded">
-                                <p>{{ {{ section.Form11[0].cardText }} }}</p>
+                            <div class="accordion-content" ng-show="data.expanded">
+                                <p>{{ {{ data.Form11[0].cardText }} }}</p>
 
                                 <ul>
-                                    <li ng-repeat="item in section.items">{{ item }} </li>
+                                    <li ng-repeat="item in data.items">{{ item }} </li>
                                 </ul>
                             </div>
                         </div>
 
 
                 <div ng-controller="AccordionController">
-                    <div class="accordion" ng-repeat="section in accordionSections">
-                        <div class="accordion-header" ng-click="toggleSection(section)">
-                            {{ section.Form1-Firms[0].title }}
+                    <div class="accordion" ng-repeat="data in accordionData">
+                        <div class="accordion-header" ng-click="toggleData(data)">
+                            {{ data.Form1-Firms[0].title }}
 
                         </div>
 
-                        <div class="accordion-content" ng-show="section.expanded">
-                            <p>{{ {{ section.Form1-Firms[0].cardText }} }}</p>
+                        <div class="accordion-content" ng-show="data.expanded">
+                            <p>{{ {{ data.Form1-Firms[0].cardText }} }}</p>
 
                             <ul>
-                                <li ng-repeat="item in section.items">{{ item }} </li>
+                                <li ng-repeat="item in data.items">{{ item }} </li>
                             </ul>
                         </div>
                     </div>
 
                     <div ng-controller="AccordionController">
-                        <div class="accordion" ng-repeat="section in accordionSections">
-                            <div class="accordion-header" ng-click="toggleSection(section)">
-                                {{ section.Form1-Trusts & Estates[0].title }}
+                        <div class="accordion" ng-repeat="data in accordionData">
+                            <div class="accordion-header" ng-click="toggleData(data)">
+                                {{ data.Form1-Trusts & Estates[0].title }}
 
                             </div>
 
-                            <div class="accordion-content" ng-show="section.expanded">
-                                <p>{{ {{ section.Form1-Trusts & Estates[0].cardText }} }}</p>
+                            <div class="accordion-content" ng-show="data.expanded">
+                                <p>{{ {{ data.Form1-Trusts & Estates[0].cardText }} }}</p>
 
                                 <ul>
-                                    <li ng-repeat="item in section.items">{{ item }} </li>
+                                    <li ng-repeat="item in data.items">{{ item }} </li>
                                 </ul>
                             </div>
                         </div>
-
-
-
-                    //do 4 of the above
 
                 </div>
 
