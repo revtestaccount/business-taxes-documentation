@@ -50,7 +50,7 @@
 
         angular.module('accordionApp',[])
         .controller('AccordionController', function($scope, $http) {
-            $http.get('data.json').then(function(response) {
+            $http.get('web-resources/data.json').then(function(response) {
                 $scope.accordionData = response.data;
             });
 
@@ -183,15 +183,15 @@ color: white;
                 <div ng-controller="AccordionController">
                 <div class="accordion" ng-repeat="data in accordionData">
                     <div class="accordion-header" ng-click="toggleData(data)">
-                        {{ data.CT1.title }}
+                        {{data.CT1.title}}
 
                     </div>
 
                     <div class="accordion-content" ng-show="data.expanded">
-                        <p>{{ {{ data.CT1.cardText }} }}</p>
+                        <p>{{ {{data.CT1.cardText}} }}</p>
 
                         <ul>
-                            <li ng-repeat="item in data.items">{{ item }} </li>
+                            <li ng-repeat="item in data.items">{{item}} </li>
                         </ul>
                     </div>
                 </div>
@@ -199,12 +199,12 @@ color: white;
                     <div ng-controller="AccordionController">
                         <div class="accordion" ng-repeat="data in accordionData">
                             <div class="accordion-header" ng-click="toggleData(data)">
-                                {{ data.Form11.title }}
+                                {{data.Form11.title}}
 
                             </div>
 
                             <div class="accordion-content" ng-show="data.expanded">
-                                <p>{{ {{ data.Form11.cardText }} }}</p>
+                                <p>{{ {{data.Form11.cardText}} }}</p>
 
                                 <ul>
                                     <li ng-repeat="item in data.items">{{ item }} </li>
@@ -216,12 +216,12 @@ color: white;
                 <div ng-controller="AccordionController">
                     <div class="accordion" ng-repeat="data in accordionData">
                         <div class="accordion-header" ng-click="toggleData(data)">
-                            {{ data.Form1-Firms.title }}
+                            {{data.Form1-Firms.title}}
 
                         </div>
 
                         <div class="accordion-content" ng-show="data.expanded">
-                            <p>{{ {{ data.Form1-Firms.cardText }} }}</p>
+                            <p>{{ {{data.Form1-Firms.cardText}} }}</p>
 
                             <ul>
                                 <li ng-repeat="item in data.items">{{ item }} </li>
@@ -232,12 +232,12 @@ color: white;
                     <div ng-controller="AccordionController">
                         <div class="accordion" ng-repeat="data in accordionData">
                             <div class="accordion-header" ng-click="toggleData(data)">
-                                {{ data.Form1-Trusts & Estates.title }}
+                                {{data.Form1-Trusts & Estates.title}}
 
                             </div>
 
                             <div class="accordion-content" ng-show="data.expanded">
-                                <p>{{ {{ data.Form1-Trusts & Estates.cardText }} }}</p>
+                                <p>{{ {{data.Form1-Trusts & Estates.cardText}} }}</p>
 
                                 <ul>
                                     <li ng-repeat="item in data.items">{{ item }} </li>
@@ -322,8 +322,10 @@ color: white;
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        </div>
+        </div>
+        </div>
+        </div>
         </div>
 
 </body>
