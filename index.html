@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" data-ng-app="BDS">
 <head>
 
     <title>Business Taxes Documentation</title>
@@ -12,13 +12,18 @@
     <link href="web-resources/css/vendor.min.css" rel="stylesheet">
     <link href="web-resources/css/site.css" rel="stylesheet">
     <link href="web-resources/css/myDocs.css" rel="stylesheet">
+    <link href="web-resources/css/accordion.css" rel="stylesheet">
     <link href="web-resources/css/angular-cookie-law.min.css" rel="stylesheet">
 
     <script
             src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
     <script
             src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-sanitize.min.js"></script>
+
+    <script src="web-resources/script.js"></script>
     <script src="web-resources/angular-cookie-law.min.js"></script>
+
+
 
     <script>
         angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
@@ -90,6 +95,70 @@ ul {
                         <!--                        </p>-->
                     </div>
                 </div>
+
+
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne" accordion>
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            CT1 - Schema & Notes
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        This section provides documentation which advises users on the available schema & notes for each available version of CT1
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo" accordion>
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Form11 - Schema & Notes
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        This section provides documentation which advises users on the available schema & notes for each available version of Form11
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree" accordion>
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Form1-Firms - Schema & Notes
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        This section provides documentation which advises users on the available schema & notes for each available version of Form1-Firms
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFour" accordion>
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Form1-Trusts & Estates - Schema & Notes
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    This section provides documentation which advises users on the available schema & notes for each available version of Form1-Trusts & Estates.
+                </div>
+            </div>
+        </div>
+
+
+
                 <!-- Looping through data.json -->
                 <div data-ng-controller="DocumentationController as vm">
                     <div class="row">
