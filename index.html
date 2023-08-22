@@ -1,4 +1,4 @@
-<html lang="en" data-ng-app="BDS">
+<html lang="en">
 <head>
 
     <title>Business Taxes Documentation</title>
@@ -112,8 +112,10 @@ ul {
                     </div>
                 </div>
 
+                <br>
 
-                <div ng-controller="AccordionController">
+
+                <div data-ng-controller="AccordionController">
 
                     <div class="accordion" ng-repeat="data in accordionData">
                         <div class="accordion-header" ng-click="toggleData(data)">
@@ -182,9 +184,8 @@ ul {
                             </div>
 
 
-
-
-                            <!-- Looping through data.json -->
+                <br>
+                <!-- Looping through data.json -->
         <div data-ng-controller="DocumentationController as vm">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
