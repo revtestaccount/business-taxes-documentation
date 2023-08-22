@@ -49,19 +49,6 @@
             gtag('event', category, {'event_category': category,   'event_label': event_label });
         }
 
-
-         angular.module('accordionApp',[])
-        .controller('AccordionController', function($scope, $http) {
-            $http.get('web-resources/data.json').then(function(response) {
-                $scope.accordionData = response.data;
-            });
-
-            $scope.toggleData = function(data) {
-                data.expanded = !data.expanded;
-
-            };
-        }};
-
     </script>
     <style>
 .grade {
@@ -114,7 +101,6 @@ ul {
 
                 <br>
 
-<!--
                 <div data-ng-controller="AccordionController">
 
                     <div class="accordion" ng-repeat="data in accordionData">
@@ -184,7 +170,7 @@ ul {
                             </div>
 
 
-                <br> -->
+                <br>
                 <!-- Looping through data.json -->
         <div data-ng-controller="DocumentationController as vm">
             <div class="row">
