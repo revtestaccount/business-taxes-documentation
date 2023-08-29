@@ -23,6 +23,7 @@
     <link href="web-resources/css/site.css" rel="stylesheet">
     <link href="web-resources/css/myDocs.css" rel="stylesheet">
     <link href="web-resources/css/angular-cookie-law.min.css" rel="stylesheet">
+    <link href="web-resources/css/dropdown.css" rel="stylesheet">
 
 
 
@@ -65,55 +66,6 @@ ul {
   padding-left: 3em;
 }
 
- .list-heading{
-      display: inline-block;
-      font-size: 1.1rem;
-  }
-  .list-container a{
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-  }
-  .list-section{
-      float: left;
-      width: 100%;
-      margin-top: 1rem;
-  }
-  .list-toggle{
-      display: inline-block;
-  }
-  .list-item {
-      width: 100%;
-      background-color: #fff;
-      padding: 1rem .5rem;
-      float: left;
-      border-left: 5px solid #24C1E9;
-      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
-      -webkit-transition: all ease .3s;
-      transition: all ease .3s;
-      margin-bottom: .5rem;
-  }
-  .list-item:hover {
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
-    -webkit-transition: all ease .3s;
-    transition: all ease .3s;
-  }
-  .list-item:last-child {
-    margin-bottom: 0;
-}
-  #summary{
-      min-height: 10rem;
-  }
-  @media screen and (max-width: 600px) {
-      .col-xxs-12{
-          float: left;
-          width: 100%;
-          position: relative;
-          min-height: 1px;
-          padding-right: 15px;
-          padding-left: 15px;
-      }
-  }
 </style>
 
 </head>
@@ -154,62 +106,40 @@ ul {
                 </div>
 
 
-                <div class="list-container">
-                    <a href="#files" class="list-toggle" data-toggle="collapse">
-                        <span class="icon-expando-opened rev" aria-hidden="true"></span>
-                        <h3 class="list-heading">List heading</h3>
-                    </a>
-                    <div id="files1" class="list-section collapse in">
-                        <div>
-                            <div class="list-item">list item 1</div>
-                            <div class="list-item">list item 2</div>
-                            <div class="list-item">list item 3</div>
-                            <div class="list-item">list item 4</div>
-                        </div>
-                    </div>
-                    </div>
+                <div class="row">
+                    <div class="col-xs-12 run-card">
+                        <div class="grey-panel-shadow">
+                            <div id="summary" class="white-panel">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-4">
+                                        <h4>Heading 1</h4>
+                                        <p>info</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <h4>Heading 2</h4>
+                                        <p>info</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <h4>Heading 3</h4>
+                                        <p>info</p>
+                                    </div>
+                                </div>
+                            </div>
 
-                <div class="list-container">
-                    <a href="#files" class="list-toggle" data-toggle="collapse">
-                        <span class="icon-expando-opened rev" aria-hidden="true"></span>
-                        <h3 class="list-heading">List heading</h3>
-                    </a>
-                    <div id="files2" class="list-section collapse in">
-                        <div>
-                            <div class="list-item">list item 1</div>
-                            <div class="list-item">list item 2</div>
-                            <div class="list-item">list item 3</div>
-                            <div class="list-item">list item 4</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="list-container">
-                    <a href="#files" class="list-toggle" data-toggle="collapse">
-                        <span class="icon-expando-opened rev" aria-hidden="true"></span>
-                        <h3 class="list-heading">List heading</h3>
-                    </a>
-                    <div id="files3" class="list-section collapse in">
-                        <div>
-                            <div class="list-item">list item 1</div>
-                            <div class="list-item">list item 2</div>
-                            <div class="list-item">list item 3</div>
-                            <div class="list-item">list item 4</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="list-container">
-                    <a href="#files" class="list-toggle" data-toggle="collapse">
-                        <span class="icon-expando-opened rev" aria-hidden="true"></span>
-                        <h3 class="list-heading">List heading</h3>
-                    </a>
-                    <div id="files4" class="list-section collapse in">
-                        <div>
-                            <div class="list-item">list item 1</div>
-                            <div class="list-item">list item 2</div>
-                            <div class="list-item">list item 3</div>
-                            <div class="list-item">list item 4</div>
+                            <div class="list-container">
+                                <a href="#files" class="list-toggle" data-toggle="collapse">
+                                    <span class="icon-expando-opened rev" aria-hidden="true"></span>
+                                    <h3 class="list-heading">List heading</h3>
+                                </a>
+                                <div id="files" class="list-section collapse in">
+                                    <div>
+                                        <div class="list-item">list item 1</div>
+                                        <div class="list-item">list item 2</div>
+                                        <div class="list-item">list item 3</div>
+                                        <div class="list-item">list item 4</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

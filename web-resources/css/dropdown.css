@@ -1,0 +1,69 @@
+.grey-panel-shadow {
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+      background-color: #ecedee;
+      padding: 1rem;
+      float: left;
+      width: 100%;
+      margin-top: .5rem;
+      margin-bottom: 2rem;
+  }
+
+
+  .white-panel {
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+      margin: .5rem 0;
+      display: block;
+      padding: 1rem 15px;
+      transition: all ease .3s;
+      background-color: #fff;
+  }
+
+ .list-heading{
+      display: inline-block;
+      font-size: 1.1rem;
+  }
+  .list-container a{
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+  }
+  .list-section{
+      float: left;
+      width: 100%;
+      margin-top: 1rem;
+  }
+  .list-toggle{
+      display: inline-block;
+  }
+  .list-item {
+      width: 100%;
+      background-color: #fff;
+      padding: 1rem .5rem;
+      float: left;
+      border-left: 5px solid #24C1E9;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+      -webkit-transition: all ease .3s;
+      transition: all ease .3s;
+      margin-bottom: .5rem;
+  }
+  .list-item:hover {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+    -webkit-transition: all ease .3s;
+    transition: all ease .3s;
+  }
+  .list-item:last-child {
+    margin-bottom: 0;
+}
+  #summary{
+      min-height: 10rem;
+  }
+  @media screen and (max-width: 600px) {
+      .col-xxs-12{
+          float: left;
+          width: 100%;
+          position: relative;
+          min-height: 1px;
+          padding-right: 15px;
+          padding-left: 15px;
+      }
+  }
