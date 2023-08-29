@@ -109,21 +109,6 @@ ul {
                 <div class="row">
                     <div class="col-xs-12 run-card">
                         <div class="grey-panel-shadow">
-                            <div id="summary" class="white-panel">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-4">
-                                        <h4>Heading 1</h4>
-                                        <p>info</p>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-4">
-                                        <h4>Heading 2</h4>
-                                        <p>info</p>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-4">
-                                        <h4>Heading 3</h4>
-                                        <p>info</p>
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="list-container">
@@ -139,9 +124,9 @@ ul {
                                                     <!-- Container  -->
                                                     <div data-ng-repeat="(header, data) in vm.data">
                                                         <div class="section-header" style= "margin-bottom: 1rem;">
-                                                            <a name="{{data.CT1.anchor}}" style="text-decoration:none"></a>
+                                                            <a name="{{data.anchor}}" style="text-decoration:none"></a>
                                                         </div>
-                                                        <i><div class="col-sm-12" style = "padding-left: 0rem !important"; data-ng-if="data.CT1.cardText" ng-bind-html="data.CT1.cardText"></div></i><br/><br/>
+                                                        <i><div class="col-sm-12" style = "padding-left: 0rem !important"; data-ng-if="data.cardText" ng-bind-html="data.cardText"></div></i><br/><br/>
                                                         <div class="col-xs-12" style="padding: 0.3rem !important;">
                                                             <div class="bold">
                                                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
@@ -159,7 +144,7 @@ ul {
                                                             </div>
                                                         </div>
                                                         <div class="card"
-                                                             data-ng-repeat="document in data.CT1.cards track by $index" style="font-size: 1.2rem; margin-bottom: 1rem;">
+                                                             data-ng-repeat="document in data.cards track by $index" style="font-size: 1.2rem; margin-bottom: 1rem;">
                                                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
                                                                 <a data-ng-href="{{document.link}}" target="_blank" data-ng-click="vm.sendData([document.category, document.description])">{{document.description}}</a>
                                                                 <sup data-ng-if="document.explainer">
@@ -172,7 +157,7 @@ ul {
                                                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3"style="padding left: 0rem !important;">{{document.dateLastUpdated}}</div>
                                                         </div>
                                                         <div
-                                                                data-ng-repeat="document in data.CT1.cards track by $index">
+                                                                data-ng-repeat="document in data.cards track by $index">
                                                             <!--
                                                                                                         change
                                                                                                         was - document.sub_hedaing
