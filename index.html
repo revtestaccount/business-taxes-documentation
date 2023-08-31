@@ -32,7 +32,7 @@
 
     <script>
      angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
-        angular.module('documentation').controller('DocumentationController', ['$http', '$sce', function($http, $sce) {
+        angular.module('documentation').controller('DocumentationController', ['$http', '$sce', $scope, function($http, $sce, $scope) {
             var vm = this;
 			vm.success = false;
 			vm.error = false;
@@ -75,42 +75,61 @@ ul {
   padding-left: 3em;
 }
 
-     .dropdown-container {
-      display: flex;
-      justify-content: space-between;
-    }
-    .dropdown {
-      position: relative;
-      width: 25%; /* Adjust as needed */
-      box-sizing: border-box;
-    }
-    .dropdown-toggle {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-    }
-    .dropdown-icon::before {
-      content: "\25BC"; /* Unicode downward-pointing triangle */
-      font-size: 0.8em;
-      margin-right: 5px;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      width: 100%; /* Full viewport width */
-      left: 0;
-      top: 100%;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+ [class^="icon-"],
+  [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'revenue_icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
+      .dropdown-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .dropdown {
+    position: relative;
+    flex: 1; /* Distribute available space equally */
+    box-sizing: border-box;
+  }
+  .dropdown-toggle {
+    background: #025e63; /* Rounded button color */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px; /* Rounded corners */
+    font-family: "Fira Sans", sans-serif; /* Fira Sans font */
+    font-weight: 600; /* Semi-bold font weight */
+    color: white; /* White font color */
+  }
+  .dropdown-icon::before {
+    content: "\e911"; /* Unicode downward-pointing triangle */
+    font-size: 0.8em;
+    margin-right: 5px;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 100%; /* Full viewport width */
+    left: 0;
+    top: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 </style>
 
 </head>
@@ -153,7 +172,7 @@ ul {
                 <div data-ng-controller="DocumentationController as vm">
 
                     <div class="dropdown">
-                        <button class="dropdown-toggle" ng-click="toggleDropdown(1)"><span class="dropdown-icon"></span>CT1 - Schema & Notes</button>
+                        <button class="dropdown-toggle" ng-click="toggleDropdown(1)"><span class="dropdown-icon" aria-hidden="true"></span>CT1 - Schema & Notes</button>
                         <div class="dropdown-content" ng-show="showDropdown[1]">
                             <!-- AngularJS content -->
                             <div class="row">
