@@ -24,6 +24,8 @@
     <link href="web-resources/css/site.css" rel="stylesheet">
     <link href="web-resources/css/myDocs.css" rel="stylesheet">
     <link href="web-resources/css/angular-cookie-law.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
 
 
 
@@ -31,38 +33,41 @@
 
 
     <script>
-     angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
-        angular.module('documentation').controller('DocumentationController', ['$http', '$sce', $scope, function($http, $sce, $scope) {
-            var vm = this;
-			vm.success = false;
-			vm.error = false;
-            $http.get('web-resources/data.json').then(function(data) {
-                vm.data = data.data;
-            })
-            vm.sendData = sendData;
+angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
 
-			vm.generateHTML = generateHTML;
+angular.module('documentation').controller('DocumentationController', ['$http', '$sce', '$scope', function($http, $sce, $scope) {
+  var vm = this;
+  vm.success = false;
+  vm.error = false;
 
-			function generateHTML(document) {
-				return '<sup>' + document.explainerIndex + '</sup>' + document.explainer;
-			}
-        }]);
+  $http.get('web-resources/data.json').then(function(data) {
+    vm.data = data.data;
+  });
 
-        function sendData(params) {
-            category = params[0];
-            event_label = params[1];
-            gtag('event', category, {'event_category': category,   'event_label': event_label });
-        }
+  vm.sendData = sendData;
+  vm.generateHTML = generateHTML;
 
-       // Initialize an array to control the visibility of dropdowns
-        $scope.showDropdown = [false, false, false, false];
+  function generateHTML(document) {
+    return '<sup>' + document.explainerIndex + '</sup>' + document.explainer;
+  }
 
-        // Function to toggle the visibility of a dropdown
-        $scope.toggleDropdown = function(index) {
-        $scope.showDropdown[index] = !$scope.showDropdown[index];
+  function sendData(params) {
+    var category = params[0];
+    var event_label = params[1];
+    gtag('event', category, {'event_category': category, 'event_label': event_label });
+  }
+}]);
+
+// Move the initialization of showDropdown array inside the controller
+angular.module('documentation').controller('DocumentationController', ['$http', '$sce', '$scope', function($http, $sce, $scope) {
+  // Initialize an array to control the visibility of dropdowns
+  $scope.showDropdown = [false, false, false, false];
+
+  // Function to toggle the visibility of a dropdown
+  $scope.toggleDropdown = function(index) {
+    $scope.showDropdown[index] = !$scope.showDropdown[index];
   };
-});
-
+}]);
     </script>
     <style>
 .grade {
@@ -75,61 +80,53 @@ ul {
   padding-left: 3em;
 }
 
- [class^="icon-"],
-  [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'revenue_icons' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 
-      .dropdown-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  .dropdown {
-    position: relative;
-    flex: 1; /* Distribute available space equally */
-    box-sizing: border-box;
-  }
-  .dropdown-toggle {
-    background: #025e63; /* Rounded button color */
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    border-radius: 20px; /* Rounded corners */
-    font-family: "Fira Sans", sans-serif; /* Fira Sans font */
-    font-weight: 600; /* Semi-bold font weight */
-    color: white; /* White font color */
-  }
-  .dropdown-icon::before {
-    content: "\e911"; /* Unicode downward-pointing triangle */
-    font-size: 0.8em;
-    margin-right: 5px;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    width: 100%; /* Full viewport width */
-    left: 0;
-    top: 100%;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+ .dropdown-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .dropdown {
+      position: relative;
+      flex: 1; /* Distribute available space equally */
+      box-sizing: border-box;
+      margin-right: 10px; /* Add spacing between dropdowns */
+    }
+    .dropdown:last-child {
+      margin-right: 0; /* Remove spacing from the last dropdown */
+    }
+    .dropdown-toggle {
+      background: #025e63; /* Rounded button color */
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center text horizontally */
+      border-radius: 20px; /* Rounded corners */
+      font-family: "Fira Sans", sans-serif; /* Fira Sans font */
+      font-weight: 600; /* Semi-bold font weight */
+      color: white; /* White font color */
+      width: 100%; /* Make buttons fill the dropdown container */
+      box-sizing: border-box; /* Include padding in width calculation */
+    }
+    .dropdown-icon::before {
+      content: "\25BC"; /* Unicode downward-pointing triangle */
+      font-size: 0.8em;
+      margin-right: 5px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      width: 100%; /* Full viewport width */
+      left: 0;
+      top: 100%;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 </style>
 
 </head>
