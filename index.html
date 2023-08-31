@@ -85,6 +85,7 @@ ul {
     .dropdown {
       flex: 1;
       box-sizing: border-box;
+      z-index: 1000;
     }
     .dropdown-toggle {
       background: #025e63;
@@ -118,7 +119,7 @@ ul {
       left: 0;
       top: 100%;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
+      z-index: 1001;
     }
     .dropdown:hover .dropdown-content {
       display: block;
@@ -162,6 +163,8 @@ ul {
                         <!--                        </p>-->
                     </div>
                 </div>
+
+                <!-- <br> come back and add this in as a quick solution if z index doesnt work -->
 
                 <div data-ng-controller="DocumentationController as vm">
 
