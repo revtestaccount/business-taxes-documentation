@@ -78,19 +78,13 @@ ul {
   padding-left: 3em;
 }
 
-
- .dropdown-container {
+  .dropdown-container {
       display: flex;
       justify-content: space-between;
     }
     .dropdown {
       flex: 1;
       box-sizing: border-box;
-      margin-right: 10px;
-      max-width: 150px; /* Set maximum width for each dropdown button */
-    }
-    .dropdown:last-child {
-      margin-right: 0;
     }
     .dropdown-toggle {
       background: #025e63;
@@ -99,14 +93,17 @@ ul {
       padding: 10px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start; /* Align text to the left */
       border-radius: 20px;
       font-family: "Fira Sans", sans-serif;
       font-weight: 600;
       color: white;
       width: 100%;
       box-sizing: border-box;
-      text-align: left; /* Align text to the left */
+      margin-right: 10px; /* Add spacing between dropdowns */
+    }
+    .dropdown:last-child {
+      margin-right: 0;
     }
     .dropdown-icon::before {
       content: "\25BC";
@@ -126,6 +123,7 @@ ul {
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
 </style>
 
 </head>
@@ -168,7 +166,7 @@ ul {
                 <div data-ng-controller="DocumentationController as vm">
 
                     <div class="dropdown">
-                        <button class="dropdown-toggle" ng-click="toggleDropdown(0)"><span class="dropdown-icon" aria-hidden="true"></span>CT1 - Schema & Notes</button>
+                        <button class="dropdown-toggle" ng-click="toggleDropdown(0)"><span class="dropdown-icon"></span>CT1 - Schema & Notes</button>
                         <div class="dropdown-content" ng-show="showDropdown[0]">
                             <!-- AngularJS content -->
                             <div class="row">
