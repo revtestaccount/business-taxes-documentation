@@ -109,13 +109,22 @@
             z-index: 2; /* Higher z-index for the dropdown menu */
         }
 
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
         .dropdown.active .dropdown-content {
             z-index:3;
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
+        /*Adjusted the z-index for the parent containers to create stacking context */
+
+        .dropdown-container {
+            z-index: 4; /* Higher stacking context */
+
         }
+
+
     </style>
 </head>
 <body class="revenue">
@@ -154,7 +163,7 @@
                 </div>
                 <br>
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
-                    <div class="dropdown" ng-class="{active: showDropdown [0]}">
+                    <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)"><span class="dropdown-icon"></span>CT1 - Schema & Notes</button>
                         <div class="dropdown-content" ng-show="showDropdown[0]">
                             <!-- AngularJS content -->
@@ -208,7 +217,7 @@
                     <!-- Repeat similar code for other dropdowns -->
 
                     <!-- Repeat this block of code for each additional dropdown -->
-                    <div class="dropdown" ng-class="{active: showDropdown [1]}">
+                    <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(1)"><span class="dropdown-icon"></span>Form 11-Schema & Notes</button>
                         <div class="dropdown-content" ng-show="showDropdown[1]">
                             <!-- AngularJS content for Dropdown 2 -->
@@ -217,7 +226,7 @@
                         </div>
                     </div>
 
-                    <div class="dropdown" ng-class="{active: showDropdown [2]}">
+                    <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(2)"><span class="dropdown-icon"></span>Form 1 - Firms - Schema & Notes</button>
                         <div class="dropdown-content" ng-show="showDropdown[2]">
                             <!-- AngularJS content for Dropdown 3 -->
@@ -226,7 +235,7 @@
                     </div>
 
 
-                    <div class="dropdown" ng-class="{active: showDropdown [3]}">
+                    <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(3)"><span class="dropdown-icon"></span>Form 1 - Trusts & Estates - Schema & Notes</button>
                         <div class="dropdown-content" ng-show="showDropdown[3]">
                             <!-- AngularJS content for Dropdown 4 -->
