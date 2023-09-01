@@ -67,6 +67,7 @@
             flex: 1;
             box-sizing: border-box;
             z-index: 1; /* Lower z-index for the button */
+            position: relative;
         }
 
         .dropdown-toggle {
@@ -84,6 +85,7 @@
             width: 100%;
             box-sizing: border-box;
             margin-right: 10px; /* Add spacing between dropdowns */
+            margin-bottom: 10px; /* Add margin at the bottom */
         }
 
         .dropdown:last-child {
@@ -105,6 +107,10 @@
             top: 100%;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 2; /* Higher z-index for the dropdown menu */
+        }
+
+        .dropdown.active .dropdown-content {
+            z-index:3;
         }
 
         .dropdown:hover .dropdown-content {
@@ -148,13 +154,13 @@
                 </div>
                 <br>
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
-                    <div class="dropdown">
+                    <div class="dropdown" ng-class="{active: showDropdown [0]}">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)"><span class="dropdown-icon"></span>CT1 - Schema & Notes</button>
                         <div class="dropdown-content" ng-show="showDropdown[0]">
                             <!-- AngularJS content -->
                             <div class="row">
                                 <div class="col-lg-12 col-md-12">
-                                    <div id="show-data1">
+                                    <div id="show-data0">
                                         <!-- Container -->
                                         <div data-ng-repeat="(header, data) in vm.data">
                                             <div class="section-header" style="margin-bottom: 1rem;">
@@ -202,7 +208,7 @@
                     <!-- Repeat similar code for other dropdowns -->
 
                     <!-- Repeat this block of code for each additional dropdown -->
-                    <div class="dropdown">
+                    <div class="dropdown" ng-class="{active: showDropdown [1]}">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(1)"><span class="dropdown-icon"></span>Form 11-Schema & Notes</button>
                         <div class="dropdown-content" ng-show="showDropdown[1]">
                             <!-- AngularJS content for Dropdown 2 -->
@@ -211,7 +217,7 @@
                         </div>
                     </div>
 
-                    <div class="dropdown">
+                    <div class="dropdown" ng-class="{active: showDropdown [2]}">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(2)"><span class="dropdown-icon"></span>Form 1 - Firms - Schema & Notes</button>
                         <div class="dropdown-content" ng-show="showDropdown[2]">
                             <!-- AngularJS content for Dropdown 3 -->
@@ -220,7 +226,7 @@
                     </div>
 
 
-                    <div class="dropdown">
+                    <div class="dropdown" ng-class="{active: showDropdown [3]}">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(3)"><span class="dropdown-icon"></span>Form 1 - Trusts & Estates - Schema & Notes</button>
                         <div class="dropdown-content" ng-show="showDropdown[3]">
                             <!-- AngularJS content for Dropdown 4 -->
