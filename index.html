@@ -66,7 +66,7 @@
         .dropdown {
             flex: 1;
             box-sizing: border-box;
-            z-index: 2000; /* Lower z-index for the button (Found other z-index in CSS files so just testing this theory) */
+            z-index: 2000; /* Lower z-index for the button (Found other z-index in CSS files  */
             position: relative;
         }
 
@@ -102,11 +102,12 @@
             display: none;
             position: absolute;
             background-color: #f9f9f9;
-            width: 100vw;
+            width: auto;
+            min-width: 100%;
             left: 0;
             top: 100%;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 3000; /* Higher z-index for the dropdown menu */
+            z-index: 4000; /* Higher z-index for the dropdown menu */
         }
 
         .dropdown:hover .dropdown-content {
@@ -120,7 +121,7 @@
         /*Adjusted the z-index for the parent containers to create stacking context */
 
         .dropdown-container {
-            z-index: 4; /* Higher stacking context */
+            z-index: 3; /* Lower stacking context */
 
         }
 
