@@ -163,7 +163,10 @@
                     </div>
                 </div>
                 <br>
+
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
+
+                    <!-- CT1 - Schema & Notes - Dropdown 1 -->
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
                             <span class="dropdown-icon"></span>CT1 - Schema & Notes
@@ -219,37 +222,186 @@
                     </div>
                 </div>
 
+                <!-- Form 11-Schema & Notes - Dropdown 2 -->
 
-                <!-- Repeat similar code for other dropdowns -->
 
-                    <!-- Repeat this block of code for each additional dropdown -->
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(1)"><span class="dropdown-icon"></span>Form 11-Schema & Notes</button>
                         <div class="dropdown-content" ng-show="showDropdown[1]">
                             <!-- AngularJS content for Dropdown 2 -->
-                            <!-- Add your content here -->
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div id="show-data1">
+                                        <!-- Container -->
+                                        <div class="section-header" style="margin-bottom: 1rem;">
+                                            <a name="{{vm.data.Form11.anchor}}" style="text-decoration:none">
+                                                <h3>{{vm.data.Form11.title}}</h3>
+                                            </a>
+                                        </div>
+                                        <i>
+                                            <div class="col-sm-12" style="padding-left: 0rem !important"; data-ng-if="vm.data.Form11.cardText" ng-bind-html="vm.data.Form11.cardText"></div>
+                                        </i>
+                                        <br/><br/>
+                                        <div class="col-xs-12" style="padding: 0.3rem !important;">
+                                            <div class="bold">
+                                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
+                                                    <strong>Document Description</strong>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-2">
+                                                    <strong>Type</strong>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3" style="padding: 0rem !important;">
+                                                    <strong>Environment</strong>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3" style="padding-left: 1.25rem !important;">
+                                                    <strong>Date Last Updated</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Iterate over the documents -->
+                                        <div class="card" data-ng-repeat="document in vm.data.Form11.cards track by $index" style="font-size: 1.2rem; margin-bottom: 1rem;">
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
+                                                <a data-ng-href="{{document.link}}" target="_blank" data-ng-click="vm.sendData([document.category, document.description])">{{document.description}}</a>
+                                                <sup data-ng-if="document.explainer">
+                                                    {{document.explainerIndex}}
+                                                </sup>
+                                            </div>
+                                            <a name="{{document.anchor}}"></a>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-2">{{document.type}}</div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3" style="padding: 0rem !important;">{{document.environment}}</div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3" style="padding-left: 0rem !important;">{{document.dateLastUpdated}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
 
                         </div>
                     </div>
+
+
+
+                <!-- Form 1 - Firms - Schema & Notes - Dropdown 3 -->
 
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(2)"><span class="dropdown-icon"></span>Form 1 - Firms - Schema & Notes</button>
                         <div class="dropdown-content" ng-show="showDropdown[2]">
                             <!-- AngularJS content for Dropdown 3 -->
-                            <!-- Add your content here -->
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div id="show-data2">
+                                        <!-- Container -->
+                                        <div class="section-header" style="margin-bottom: 1rem;">
+                                            <a name="{{vm.data.Form1-Firms.anchor}}" style="text-decoration:none">
+                                                <h3>{{vm.data.Form1-Firms.title}}</h3>
+                                            </a>
+                                        </div>
+                                        <i>
+                                            <div class="col-sm-12" style="padding-left: 0rem !important"; data-ng-if="vm.data.Form1-Firms.cardText" ng-bind-html="vm.data.Form1-Firms.cardText"></div>
+                                        </i>
+                                        <br/><br/>
+                                        <div class="col-xs-12" style="padding: 0.3rem !important;">
+                                            <div class="bold">
+                                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
+                                                    <strong>Document Description</strong>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-2">
+                                                    <strong>Type</strong>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3" style="padding: 0rem !important;">
+                                                    <strong>Environment</strong>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3" style="padding-left: 1.25rem !important;">
+                                                    <strong>Date Last Updated</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Iterate over the documents -->
+                                        <div class="card" data-ng-repeat="document in vm.data.Form1-Firms.cards track by $index" style="font-size: 1.2rem; margin-bottom: 1rem;">
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
+                                                <a data-ng-href="{{document.link}}" target="_blank" data-ng-click="vm.sendData([document.category, document.description])">{{document.description}}</a>
+                                                <sup data-ng-if="document.explainer">
+                                                    {{document.explainerIndex}}
+                                                </sup>
+                                            </div>
+                                            <a name="{{document.anchor}}"></a>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-2">{{document.type}}</div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3" style="padding: 0rem !important;">{{document.environment}}</div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3" style="padding-left: 0rem !important;">{{document.dateLastUpdated}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
                         </div>
                     </div>
 
+
+
+                <!--Form 1 - Trusts & Estates - Schema & Notes - Dropdown 4 -->
 
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(3)"><span class="dropdown-icon"></span>Form 1 - Trusts & Estates - Schema & Notes</button>
                         <div class="dropdown-content" ng-show="showDropdown[3]">
-                            <!-- AngularJS content for Dropdown 4 -->
-                            <!-- Add your content here -->
+                                    <!-- AngularJS content for Dropdown 4 -->
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div id="show-data3">
+                                                <!-- Container -->
+                                                <div class="section-header" style="margin-bottom: 1rem;">
+                                                    <a name="{{vm.data.Form1-Trusts & Estates.anchor}}" style="text-decoration:none">
+                                                        <h3>{{vm.data.Form1-Trusts & Estates.title}}</h3>
+                                                    </a>
+                                                </div>
+                                                <i>
+                                                    <div class="col-sm-12" style="padding-left: 0rem !important"; data-ng-if="vm.data.Form1-Trusts & Estates.cardText" ng-bind-html="vm.data.Form1-Trusts & Estates.cardText"></div>
+                                                </i>
+                                                <br/><br/>
+                                                <div class="col-xs-12" style="padding: 0.3rem !important;">
+                                                    <div class="bold">
+                                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
+                                                            <strong>Document Description</strong>
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-2">
+                                                            <strong>Type</strong>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3" style="padding: 0rem !important;">
+                                                            <strong>Environment</strong>
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3" style="padding-left: 1.25rem !important;">
+                                                            <strong>Date Last Updated</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Iterate over the documents -->
+                                                <div class="card" data-ng-repeat="document in vm.data.Form1-Trusts & Estates.cards track by $index" style="font-size: 1.2rem; margin-bottom: 1rem;">
+                                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
+                                                        <a data-ng-href="{{document.link}}" target="_blank" data-ng-click="vm.sendData([document.category, document.description])">{{document.description}}</a>
+                                                        <sup data-ng-if="document.explainer">
+                                                            {{document.explainerIndex}}
+                                                        </sup>
+                                                    </div>
+                                                    <a name="{{document.anchor}}"></a>
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-2">{{document.type}}</div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3" style="padding: 0rem !important;">{{document.environment}}</div>
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3" style="padding-left: 0rem !important;">{{document.dateLastUpdated}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
 
-                    <!-- Repeat this block of code for each additional dropdown -->
+
 
                 </div>
                 <br>
