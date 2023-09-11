@@ -163,7 +163,6 @@
                     </div>
                 </div>
                 <br>
-
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
@@ -173,7 +172,7 @@
                             <!-- AngularJS content -->
                             <div class="row">
                                 <div class="col-lg-12 col-md-12">
-                                    <div id="show-data-0">
+                                    <div id="show-data0">
                                         <!-- Container -->
                                         <div class="section-header" style="margin-bottom: 1rem;">
                                             <a name="{{vm.data.CT1.anchor}}" style="text-decoration:none">
@@ -220,66 +219,18 @@
                     </div>
                 </div>
 
+
                 <!-- Repeat similar code for other dropdowns -->
 
-                <!-- Dropdown 2 -->
-
                 <!-- Repeat this block of code for each additional dropdown -->
-                    <div class="dropdown active">
-                        <button class="dropdown-toggle" ng-click="toggleDropdown(1)">
-                            <span class="dropdown-icon"></span>Form 11-Schema & Notes
-                        </button>
-                        <div class="dropdown-content" ng-show="showDropdown[1]">
-                            <!-- AngularJS content for Dropdown 2 -->
-                            <!-- Add your content here -->
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12">
-                                    <div id="show-data-1">
-                                        <!-- Container -->
-                                        <div class="section-header" style="margin-bottom: 1rem;">
-                                            <a name="{{vm.data.Form11.anchor}}" style="text-decoration:none">
-                                                <h3>{{vm.data.Form11.title}}</h3>
-                                            </a>
-                                        </div>
-                                        <i>
-                                            <div class="col-sm-12" style="padding-left: 0rem !important"; data-ng-if="vm.data.Form11.cardText" ng-bind-html="vm.data.Form11.cardText"></div>
-                                        </i>
-                                        <br/><br/>
-                                        <div class="col-xs-12" style="padding: 0.3rem !important;">
-                                            <div class="bold">
-                                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
-                                                    <strong>Document Description</strong>
-                                                </div>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-2">
-                                                    <strong>Type</strong>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3" style="padding: 0rem !important;">
-                                                    <strong>Environment</strong>
-                                                </div>
-                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3" style="padding-left: 1.25rem !important;">
-                                                    <strong>Date Last Updated</strong>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Iterate over the documents -->
-                                        <div class="card" data-ng-repeat="document in vm.data.Form11.cards track by $index" style="font-size: 1.2rem; margin-bottom: 1rem;">
-                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
-                                                <a data-ng-href="{{document.link}}" target="_blank" data-ng-click="vm.sendData([document.category, document.description])">{{document.description}}</a>
-                                                <sup data-ng-if="document.explainer">
-                                                    {{document.explainerIndex}}
-                                                </sup>
-                                            </div>
-                                            <a name="{{document.anchor}}"></a>
-                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-xxs-2">{{document.type}}</div>
-                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-3" style="padding: 0rem !important;">{{document.environment}}</div>
-                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-xxs-3" style="padding-left: 0rem !important;">{{document.dateLastUpdated}}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
+                <div class="dropdown active">
+                    <button class="dropdown-toggle" ng-click="toggleDropdown(1)"><span class="dropdown-icon"></span>Form 11-Schema & Notes</button>
+                    <div class="dropdown-content" ng-show="showDropdown[1]">
+                        <!-- AngularJS content for Dropdown 2 -->
+                        <!-- Add your content here -->
+
                     </div>
+                </div>
 
                 <div class="dropdown active">
                     <button class="dropdown-toggle" ng-click="toggleDropdown(2)"><span class="dropdown-icon"></span>Form 1 - Firms - Schema & Notes</button>
@@ -301,18 +252,16 @@
                 <!-- Repeat this block of code for each additional dropdown -->
 
             </div>
-
-
             <br>
-                <div class="row">
-                    <h2>Support Facilities</h2>
-                    <p>
-                        This documentation is served from Revenue's GitHub Business Taxes repository, which can be found <b><a href="https://github.com/revenue-ie/business-taxes-documentation">here</a></b>.
-                    </p>
-                </div>
+            <div class="row">
+                <h2>Support Facilities</h2>
+                <p>
+                    This documentation is served from Revenue's GitHub Business Taxes repository, which can be found <b><a href="https://github.com/revenue-ie/business-taxes-documentation">here</a></b>.
+                </p>
             </div>
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>
