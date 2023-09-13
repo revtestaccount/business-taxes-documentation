@@ -288,12 +288,12 @@
                                     <div id="show-data2">
                                         <!-- Container -->
                                         <div class="section-header" style="margin-bottom: 1rem;">
-                                            <a name="{{vm.data.Form1Firms.anchor}}" style="text-decoration:none">
-                                                <h3>{{vm.data.Form1Firms.title}}</h3>
+                                            <a name="{{vm.data.Form1-Firms.anchor}}" style="text-decoration:none">
+                                                <h3>{{vm.data.Form1-Firms.title}}</h3>
                                             </a>
                                         </div>
                                         <i>
-                                            <div class="col-sm-12" style="padding-left: 0rem !important"; data-ng-if="vm.data.Form1Firms.cardText" ng-bind-html="vm.data.Form1Firms.cardText"></div>
+                                            <div class="col-sm-12" style="padding-left: 0rem !important"; data-ng-if="vm.data.Form1-Firms.cardText" ng-bind-html="vm.data.Form1-Firms.cardText"></div>
                                         </i>
                                         <br/><br/>
                                         <div class="col-xs-12" style="padding: 0.3rem !important;">
@@ -313,7 +313,7 @@
                                             </div>
                                         </div>
                                         <!-- Iterate over the documents -->
-                                        <div class="card" data-ng-repeat="document in vm.data.Form1Firms.cards track by $index" style="font-size: 1.2rem; margin-bottom: 1rem;">
+                                        <div class="card" data-ng-repeat="document in vm.data.Form1-Firms.cards track by $index" style="font-size: 1.2rem; margin-bottom: 1rem;">
                                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
                                                 <a data-ng-href="{{document.link}}" target="_blank" data-ng-click="vm.sendData([document.category, document.description])">{{document.description}}</a>
                                                 <sup data-ng-if="document.explainer">
