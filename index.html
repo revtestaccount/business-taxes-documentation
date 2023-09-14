@@ -17,43 +17,20 @@
     <script src="web-resources/angular-cookie-law.min.js"></script>
     <script>
         angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
-
         angular.module('documentation').controller('DocumentationController', ['$http', '$sce', '$scope', function ($http, $sce, $scope) {
             var vm = this;
             vm.success = false;
             vm.error = false;
-
             $http.get('web-resources/data.json').then(function (data) {
                 vm.data = data.data;
-
-                // Initialize an array to control the visibility of dropdowns
-                $scope.showDropdown = [false, false, false, false];
-
-                // Function to toggle the visibility of a dropdown
-                $scope.toggleDropdown = function (index) {
-                    $scope.showDropdown[index] = !$scope.showDropdown[index];
-                };
-
-                // Pagination settings
-                $scope.documents = vm.data['Form1-Trusts & Estates'].cards;
-                $scope.pageSize = 10;
-                $scope.currentPage = 1;
-
-                $scope.changePage = function (pageOffset) {
-                    $scope.currentPage += pageOffset;
-                    updatePaginatedDocuments();
-                };
-
-                function updatePaginatedDocuments() {
-                    var startIndex = ($scope.currentPage - 1) * $scope.pageSize;
-                    var endIndex = startIndex + $scope.pageSize;
-                    $scope.paginatedDocuments = $scope.documents.slice(startIndex, endIndex);
-                }
-
-                updatePaginatedDocuments();
             });
 
             vm.sendData = sendData;
+            vm.generateHTML = generateHTML;
+
+            function generateHTML(document) {
+                return '<sup>' + document.explainerIndex + '</sup>' + document.explainer;
+            }
 
             function sendData(params) {
                 var category = params[0];
@@ -61,9 +38,13 @@
                 gtag('event', category, {'event_category': category, 'event_label': event_label });
             }
 
-            function generateHTML(document) {
-                return '<sup>' + document.explainerIndex + '</sup>' + document.explainer;
-            }
+            // Initialize an array to control the visibility of dropdowns
+            $scope.showDropdown = [false, false, false, false];
+
+            // Function to toggle the visibility of a dropdown
+            $scope.toggleDropdown = function (index) {
+                $scope.showDropdown[index] = !$scope.showDropdown[index];
+            };
         }]);
     </script>
     <style>
@@ -386,7 +367,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <!-- Iterate over the documents -->
                                         <div class="card" data-ng-repeat="document in vm.data['Form1-Trusts & Estates'].cards track by $index" style="font-size: 1.2rem; margin-bottom: 1rem;">
                                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4 col-xxs-4">
@@ -407,38 +387,17 @@
                     </div>
                 </div>
 
-                <!-- Display Dropdown Content (Initially hidden) -->
-                <div class="row" ng-show="showDropdown[3]">
+                <div class="row" style="margin-top: 70px;">
                     <div class="col-lg-12 col-md-12">
-                        <div ng-repeat="document in paginatedDocuments">
-                            <!-- Display each document here -->
-                            {{ document.description }}
-                        </div>
+                        <h2>Support Facilities</h2>
+                        <p>
+                            This documentation is served from Revenue's GitHub Business Taxes repository, which can be found <b><a href="https://github.com/revenue-ie/business-taxes-documentation">here</a></b>.
+                        </p>
                     </div>
-                </div>
-
-                <!-- Pagination Controls (Initially hidden) -->
-                <div class="row" ng-show="showDropdown[3]">
-                    <div class="col-lg-12 col-md-12">
-                        <ul class="pagination">
-                            <li><a href="#" ng-click="changePage(-1)">Previous</a></li>
-                            <li><a href="#" ng-click="changePage(1)">Next</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-            <div class="row" style="margin-top: 70px;">
-                <div class="col-lg-12 col-md-12">
-                <h2>Support Facilities</h2>
-                <p>
-                    This documentation is served from Revenue's GitHub Business Taxes repository, which can be found <b><a href="https://github.com/revenue-ie/business-taxes-documentation">here</a></b>.
-                </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
 </body>
 </html>
-
