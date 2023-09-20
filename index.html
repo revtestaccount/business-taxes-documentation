@@ -21,6 +21,7 @@
             var vm = this;
             vm.success = false;
             vm.error = false;
+
             $http.get('web-resources/data.json').then(function (data) {
                 vm.data = data.data;
             });
@@ -44,6 +45,11 @@
             // Function to toggle the visibility of a dropdown
             $scope.toggleDropdown = function (index) {
                 $scope.showDropdown[index] = !$scope.showDropdown[index];
+            };
+
+            // Function to close the dropdown when mouse cursor leaves
+            $scope.closeDropdown = function (index) {
+                $scope.showDropdown[index] = false;
             };
         }]);
     </script>
@@ -162,14 +168,19 @@
                     </div>
                 </div>
                 <br>
+
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
                     <!-- Dropdown 1 -->
-                    <div class="dropdown active">
-                        <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
-                            <span class="dropdown-icon"></span>CT1 - Schema & Notes
-                        </button>
-                        <div class="dropdown-content" ng-show="showDropdown[0]">
+                    <div data-ng-controller="DocumentationController as vm" class="ng-scope">
+                        <!-- Dropdown 1 -->
+                        <div class="dropdown active" ng-mouseleave="closeDropdown(0)">
+                            <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
+                                <span class="dropdown-icon"></span>CT1 - Schema & Notes
+                            </button>
+                            <div class="dropdown-content" ng-show="showDropdown[0]">
+
                             <!-- AngularJS content for Dropdown 1 -->
+
                             <div class="row">
                                 <div class="col-lg-12 col-md-12">
                                     <div id="show-data0">
@@ -216,6 +227,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
 
                     <!-- Dropdown 2 -->
