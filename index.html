@@ -36,7 +36,7 @@
             function sendData(params) {
                 var category = params[0];
                 var event_label = params[1];
-                gtag('event', category, {'event_category': category, 'event_label': event_label });
+                gtag('event', category, { 'event_category': category, 'event_label': event_label });
             }
 
             // Initialize an array to control the visibility of dropdowns
@@ -45,6 +45,11 @@
             // Function to toggle the visibility of a dropdown
             $scope.toggleDropdown = function (index) {
                 $scope.showDropdown[index] = !$scope.showDropdown[index];
+            };
+
+            // Function to prevent automatic closing when cursor leaves dropdown
+            $scope.preventClose = function (index) {
+                $scope.showDropdown[index] = true;
             };
         }]);
     </script>
@@ -168,7 +173,7 @@
 
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
                     <!-- Dropdown 1 -->
-                    <div class="dropdown active" ng-class="{'active':showDropdown[0]}">
+                        <div class="dropdown active" ng-class="{ 'active': showDropdown[0] }" ng-mouseleave="preventClose(0)" ng-mouseenter="preventClose(0)">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
                             <span class="dropdown-icon"></span>CT1 - Schema & Notes
                         </button>
