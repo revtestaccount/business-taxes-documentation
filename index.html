@@ -121,7 +121,12 @@
         }
 
         .dropdown.active .dropdown-content {
-            z-index:4000;
+            /* z-index:4000; */
+
+        }
+
+        .dropdown-content {
+            z-index: 5000;
         }
 
         /*Adjusted the z-index for the parent containers to create stacking context */
@@ -171,15 +176,13 @@
 
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
                     <!-- Dropdown 1 -->
-                    <div data-ng-controller="DocumentationController as vm" class="ng-scope">
-                        <!-- Dropdown 1 -->
-                        <div class="dropdown active" ng-mouseleave="closeDropdown(0)">
-                            <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
-                                <span class="dropdown-icon"></span>CT1 - Schema & Notes
-                            </button>
-                            <div class="dropdown-content" ng-show="showDropdown[0]">
+                    <div class="dropdown active" ng-mouseenter="showDropdown[0] = true" ng-mouseleave="showDropdown[0] = false">
+                        <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
+                            <span class="dropdown-icon"></span>CT1 - Schema & Notes
+                        </button>
+                        <div class="dropdown-content" ng-show="showDropdown[0]">
 
-                            <!-- AngularJS content for Dropdown 1 -->
+                        <!-- AngularJS content for Dropdown 1 -->
 
                             <div class="row">
                                 <div class="col-lg-12 col-md-12">
