@@ -46,11 +46,6 @@
             $scope.toggleDropdown = function (index) {
                 $scope.showDropdown[index] = !$scope.showDropdown[index];
             };
-
-            // Function to close the dropdown when mouse cursor leaves
-            $scope.closeDropdown = function (index) {
-                $scope.showDropdown[index] = false;
-            };
         }]);
     </script>
     <style>
@@ -173,7 +168,7 @@
 
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
                     <!-- Dropdown 1 -->
-                    <div class="dropdown active" ng-mouseenter="showDropdown[0] = true" ng-mouseleave="showDropdown[0] = false">
+                    <div class="dropdown active" ng-class="{'active':showDropdown[0]}">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
                             <span class="dropdown-icon"></span>CT1 - Schema & Notes
                         </button>
