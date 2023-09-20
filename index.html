@@ -45,19 +45,9 @@
             $scope.toggleDropdown = function (index) {
                 $scope.showDropdown[index] = !$scope.showDropdown[index];
             };
-
-            // Add an event listener to the document body to close the dropdown when clicking outside of it
-            document.body.addEventListener('click', function (event) {
-            var dropdowns = document.querySelectorAll('.dropdown-content');
-            dropdowns.forEach(function (dropdown) {
-                if (event.target !== dropdown && !dropdown.contains(event.target)) {
-                    dropdown.style.display = 'none';
-            }
-            });
-            });
         }]);
 
-        
+
 
     </script>
     <style>
@@ -123,6 +113,11 @@
             z-index: 4000; /* Higher z-index for the dropdown menu */
         }
 
+        .dropdown-container:hover .dropdown-content {
+            display: block;
+
+        }
+
 
         .dropdown.active .dropdown-content {
             z-index:4000;
@@ -174,6 +169,7 @@
                 <br>
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
                     <!-- Dropdown 1 -->
+                <div class="dropdown-container">
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
                             <span class="dropdown-icon"></span>CT1 - Schema & Notes
@@ -227,6 +223,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
                     <!-- Dropdown 2 -->
                     <div class="dropdown active">
