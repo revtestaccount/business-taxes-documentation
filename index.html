@@ -21,7 +21,6 @@
             var vm = this;
             vm.success = false;
             vm.error = false;
-
             $http.get('web-resources/data.json').then(function (data) {
                 vm.data = data.data;
             });
@@ -36,7 +35,7 @@
             function sendData(params) {
                 var category = params[0];
                 var event_label = params[1];
-                gtag('event', category, { 'event_category': category, 'event_label': event_label });
+                gtag('event', category, {'event_category': category, 'event_label': event_label });
             }
 
             // Initialize an array to control the visibility of dropdowns
@@ -47,11 +46,19 @@
                 $scope.showDropdown[index] = !$scope.showDropdown[index];
             };
 
-            // Function to prevent automatic closing when cursor leaves dropdown
-            $scope.preventClose = function (index) {
-                $scope.showDropdown[index] = true;
-            };
+            // Add an event listener to the document body to close the dropdown when clicking outside of it
+            document.body.addEventListener('click', function (event) {
+            var dropdowns = document.querySelectorAll('.dropdown-content');
+            dropdowns.forEach(function (dropdown) {
+                if (event.target !== dropdown && !dropdown.contains(event.target)) {
+                    dropdown.style.display = 'none';
+            }
+            });
+            });
         }]);
+
+        
+
     </script>
     <style>
         .grade {
@@ -116,15 +123,10 @@
             z-index: 4000; /* Higher z-index for the dropdown menu */
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
 
         .dropdown.active .dropdown-content {
             z-index:4000;
-
         }
-
 
         /*Adjusted the z-index for the parent containers to create stacking context */
 
@@ -170,17 +172,14 @@
                     </div>
                 </div>
                 <br>
-
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
                     <!-- Dropdown 1 -->
-                        <div class="dropdown active" ng-class="{ 'active': showDropdown[0] }" ng-mouseleave="preventClose(0)" ng-mouseenter="preventClose(0)">
+                    <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
                             <span class="dropdown-icon"></span>CT1 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[0]">
-
-                        <!-- AngularJS content for Dropdown 1 -->
-
+                            <!-- AngularJS content for Dropdown 1 -->
                             <div class="row">
                                 <div class="col-lg-12 col-md-12">
                                     <div id="show-data0">
@@ -227,7 +226,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </div>
 
                     <!-- Dropdown 2 -->
