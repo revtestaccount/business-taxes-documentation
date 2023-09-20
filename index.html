@@ -113,13 +113,21 @@
             z-index: 4000; /* Higher z-index for the dropdown menu */
         }
 
-        .dropdown-container:hover .dropdown-content {
+        .dropdown-container:active .dropdown-content {
             display: block;
 
         }
 
 
         .dropdown.active .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: auto;
+            min-width: 100%;
+            left: 0;
+            top: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index:4000;
         }
 
@@ -127,7 +135,7 @@
 
         .dropdown-container {
             z-index: 3; /* Lower stacking context */
-
+            position: relative;
         }
 
     </style>
@@ -169,7 +177,7 @@
                 <br>
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
                     <!-- Dropdown 1 -->
-                <div class="dropdown-container">
+                <div class="dropdown-container active">
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
                             <span class="dropdown-icon"></span>CT1 - Schema & Notes
