@@ -43,6 +43,8 @@
 
             // Function to toggle the visibility of a dropdown
             $scope.toggleDropdown = function (index) {
+                //set the clicked dropdown to open
+                $scope.showDropdown[index] = true;
 
             };
         }]);
@@ -169,7 +171,7 @@
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
                             <span class="dropdown-icon"></span>CT1 - Schema & Notes
                         </button>
-                        <div class="dropdown-content" ng-show="true">
+                        <div class="dropdown-content">
                             <!-- AngularJS content for Dropdown 1 -->
                             <div class="row">
                                 <div class="col-lg-12 col-md-12">
