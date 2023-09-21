@@ -112,12 +112,10 @@
             z-index: 4000; /* Higher z-index for the dropdown menu */
         }
 
-        .dropdown:active .dropdown-content {
-            display: block;
-        }
-
+        /* Keep the dropdown content visible when dropdown is active */
         .dropdown.active .dropdown-content {
-            z-index:4000;
+            display: block !important; /* Use !important to override other styles if needed */
+            z-index: 4000; /* Set the z-index as needed */
         }
 
         /*Adjusted the z-index for the parent containers to create stacking context */
