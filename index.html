@@ -38,15 +38,9 @@
                 gtag('event', category, {'event_category': category, 'event_label': event_label });
             }
 
-
-             // Initialize an array to control the visibility of dropdowns
-            $scope.showDropdown = [false, false, false, false];
-
             // Function to toggle the visibility of a dropdown
             $scope.toggleDropdown = function (index) {
-                // Set the clicked dropdown to open and close others
-                for (var i = 0; i < $scope.showDropdown.length; i++) {
-                    $scope.showDropdown[i] = (i === index) ? !$scope.showDropdown[i] : false;
+                $scope.showDropdown = index;
         }
     };
         }]);
@@ -114,10 +108,6 @@
             z-index: 4000; /* Higher z-index for the dropdown menu */
         }
 
-        .dropdown:active .dropdown-content {
-            display: block;
-        }
-
         .dropdown.active .dropdown-content {
             z-index:4000;
         }
@@ -173,7 +163,7 @@
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
                             <span class="dropdown-icon"></span>CT1 - Schema & Notes
                         </button>
-                        <div class="dropdown-content" ng-show="showDropdown[0]">
+                        <div class="dropdown-content" ng-show="showDropdown === 0">
                             <!-- AngularJS content for Dropdown 1 -->
                             <div class="row">
                                 <div class="col-lg-12 col-md-12">
