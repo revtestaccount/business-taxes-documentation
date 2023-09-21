@@ -39,14 +39,16 @@
             }
 
 
-            // Initialize an array to control the visibility of dropdowns
+             // Initialize an array to control the visibility of dropdowns
             $scope.showDropdown = [false, false, false, false];
 
             // Function to toggle the visibility of a dropdown
             $scope.toggleDropdown = function (index) {
-                // Toggle the visibility of the clicked dropdown only
-                $scope.showDropdown[index] = !$scope.showDropdown[index];
-            };
+                // Set the clicked dropdown to open and close others
+                for (var i = 0; i < $scope.showDropdown.length; i++) {
+                    $scope.showDropdown[i] = (i === index) ? !$scope.showDropdown[i] : false;
+        }
+    };
         }]);
     </script>
     <style>
@@ -112,10 +114,12 @@
             z-index: 4000; /* Higher z-index for the dropdown menu */
         }
 
-        /* Keep the dropdown content visible when dropdown is active */
+        .dropdown:active .dropdown-content {
+            display: block;
+        }
+
         .dropdown.active .dropdown-content {
-            display: block !important; /* Use !important to override other styles if needed */
-            z-index: 4000; /* Set the z-index as needed */
+            z-index:4000;
         }
 
         /*Adjusted the z-index for the parent containers to create stacking context */
