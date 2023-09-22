@@ -18,49 +18,62 @@
     <script>
         angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
 
-        angular.module('documentation').controller('DocumentationController', ['$http', '$sce', '$scope', function ($http, $sce, $scope) {
-            var vm = this;
-            vm.success = false;
-            vm.error = false;
+angular.module('documentation').controller('DocumentationController', ['$http', '$sce', '$scope', function ($http, $sce, $scope) {
+    var vm = this;
+    vm.success = false;
+    vm.error = false;
 
-            $http.get('web-resources/data.json').then(function (data) {
-                vm.data = data.data;
+    $http.get('web-resources/data.json').then(function (data) {
+        vm.data = data.data;
+    });
+
+    vm.sendData = sendData;
+    vm.generateHTML = generateHTML;
+
+    function generateHTML(document) {
+        return '<sup>' + document.explainerIndex + '</sup>' + document.explainer;
+    }
+
+    function sendData(params) {
+        var category = params[0];
+        var event_label = params[1];
+        gtag('event', category, { 'event_category': category, 'event_label': event_label });
+    }
+
+    // Initialize an array to control the visibility of dropdowns
+    $scope.showDropdown = [false, false, false, false];
+
+    // Flag to track if the dropdown was opened by hover
+    $scope.dropdownOpenedByHover = false;
+
+    // Function to open the dropdown on hover
+    $scope.openDropdownOnHover = function (index) {
+        $scope.showDropdown[index] = true;
+        $scope.dropdownOpenedByHover = true;
+    };
+
+    // Function to open the dropdown when clicked
+    $scope.openDropdownOnClick = function (index) {
+        // Close all other dropdowns
+        $scope.showDropdown = $scope.showDropdown.map(function () {
+            return false;
+        });
+
+        // Toggle the visibility of the clicked dropdown
+        $scope.showDropdown[index] = !$scope.showDropdown[index];
+    };
+
+    // Close all dropdowns when any other action is performed on the webpage
+    $scope.closeDropdowns = function () {
+        if (!$scope.dropdownOpenedByHover) {
+            $scope.showDropdown = $scope.showDropdown.map(function () {
+                return false;
             });
+        }
+        $scope.dropdownOpenedByHover = false;
+    };
+}]);
 
-            vm.sendData = sendData;
-            vm.generateHTML = generateHTML;
-
-            function generateHTML(document) {
-                return '<sup>' + document.explainerIndex + '</sup>' + document.explainer;
-            }
-
-            function sendData(params) {
-                var category = params[0];
-                var event_label = params[1];
-                gtag('event', category, {'event_category': category, 'event_label': event_label });
-            }
-
-            // Initialize an array to control the visibility of dropdowns
-            $scope.showDropdown = [false, false, false, false];
-
-            // Function to open the dropdown when clicked
-            $scope.openDropdown = function (index) {
-                // Close all other dropdowns
-                $scope.showDropdown = $scope.showDropdown.map(function () {
-                    return false;
-                });
-
-                // Toggle the visibility of the clicked dropdown
-                $scope.showDropdown[index] = !$scope.showDropdown[index];
-            };
-
-            // Close all dropdowns when any other action is performed on the webpage
-            $scope.closeDropdowns = function () {
-                $scope.showDropdown = $scope.showDropdown.map(function () {
-                    return false;
-                });
-            };
-        }]);
 
     </script>
     <style>
@@ -126,9 +139,7 @@
             z-index: 4000; /* Higher z-index for the dropdown menu */
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+
 
         .dropdown.active .dropdown-content {
             z-index:4000;
