@@ -17,10 +17,12 @@
     <script src="web-resources/angular-cookie-law.min.js"></script>
     <script>
         angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
+
         angular.module('documentation').controller('DocumentationController', ['$http', '$sce', '$scope', function ($http, $sce, $scope) {
             var vm = this;
             vm.success = false;
             vm.error = false;
+
             $http.get('web-resources/data.json').then(function (data) {
                 vm.data = data.data;
             });
@@ -41,12 +43,25 @@
             // Initialize an array to control the visibility of dropdowns
             $scope.showDropdown = [false, false, false, false];
 
-            // Function to toggle the visibility of a dropdown
-            $scope.toggleDropdown = function (index) {
+            // Function to open the dropdown when clicked
+            $scope.openDropdown = function (index) {
+                // Close all other dropdowns
+                $scope.showDropdown = $scope.showDropdown.map(function () {
+                    return false;
+                });
+
+                // Toggle the visibility of the clicked dropdown
                 $scope.showDropdown[index] = !$scope.showDropdown[index];
             };
 
+            // Close all dropdowns when any other action is performed on the webpage
+            $scope.closeDropdowns = function () {
+                $scope.showDropdown = $scope.showDropdown.map(function () {
+                    return false;
+                });
+            };
         }]);
+
     </script>
     <style>
         .grade {
@@ -111,7 +126,11 @@
             z-index: 4000; /* Higher z-index for the dropdown menu */
         }
 
-        .dropdown:hover .dropdown-content {
+        /* .dropdown:hover .dropdown-content {
+            display: block;
+        } */
+
+        .dropdown.open .dropdown.content {
             display: block;
         }
 
@@ -129,7 +148,7 @@
 
     </style>
 </head>
-<body class="revenue">
+<body class="revenue" ng-click="closeDropdowns()">
 <cookie-law-banner
         message="By using this website, you consent to the use of cookies in accordance with our privacy policy."
         policy-url="https://www.revenue.ie/en/online-services/support/data-and-security/privacy/use-of-cookies.aspx"
@@ -167,7 +186,7 @@
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
                     <!-- Dropdown 1 -->
                     <div class="dropdown active">
-                        <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
+                        <button class="dropdown-toggle" ng-click="openDropdown(0)">
                             <span class="dropdown-icon"></span>CT1 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[0]">
