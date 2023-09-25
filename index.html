@@ -44,6 +44,7 @@
             // Function to toggle the visibility of a dropdown
             $scope.toggleDropdown = function (index) {
                 $scope.showDropdown[index] = !$scope.showDropdown[index];
+                console.log
             };
         }]);
     </script>
@@ -101,7 +102,7 @@
         }
 
         .dropdown.active .dropdown-icon::before {
-            transform: rotate(180deg);
+            transform: rotate(180deg) !important;
         }
 
         .dropdown-content {
@@ -130,7 +131,6 @@
             z-index: 3; /* Lower stacking context */
 
         }
-
     </style>
 </head>
 <body class="revenue">
