@@ -43,8 +43,7 @@
 
             // Function to toggle the visibility of a dropdown
             $scope.toggleDropdown = function (index) {
-                // Toggle the visibility without closing when clicked
-                $scope.showDropdown[index] = true;
+                $scope.showDropdown[index] = !$scope.showDropdown[index];
             };
         }]);
 
@@ -126,7 +125,6 @@
 
         .dropdown-container {
             z-index: 3; /* Lower stacking context */
-
         }
     </style>
 </head>
