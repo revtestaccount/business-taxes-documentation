@@ -43,10 +43,11 @@
 
             // Function to toggle the visibility of a dropdown
             $scope.toggleDropdown = function (index) {
-                $scope.showDropdown[index] = !$scope.showDropdown[index];
-                console.log
+                // Toggle the visibility without closing when clicked
+                $scope.showDropdown[index] = true;
             };
         }]);
+
     </script>
     <style>
         .grade {
@@ -115,10 +116,6 @@
             top: 100%;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 4000; /* Higher z-index for the dropdown menu */
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
         }
 
         .dropdown.active .dropdown-content {
