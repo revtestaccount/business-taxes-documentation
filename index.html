@@ -24,7 +24,6 @@
             $http.get('web-resources/data.json').then(function (data) {
                 vm.data = data.data;
             });
-
             vm.sendData = sendData;
             vm.generateHTML = generateHTML;
 
@@ -35,7 +34,7 @@
             function sendData(params) {
                 var category = params[0];
                 var event_label = params[1];
-                gtag('event', category, {'event_category': category, 'event_label': event_label });
+                gtag('event', category, { 'event_category': category, 'event_label': event_label });
             }
 
             // Initialize an array to control the visibility of dropdowns
@@ -45,7 +44,18 @@
             $scope.toggleDropdown = function (index) {
                 $scope.showDropdown[index] = !$scope.showDropdown[index];
             };
+
+            // Add click event listener to toggle dropdown on button click
+            var dropdownButtons = document.querySelectorAll('.dropdown-toggle');
+            for (var i = 0; i < dropdownButtons.length; i++) {
+                dropdownButtons[i].addEventListener('click', function () {
+                    var index = this.getAttribute('data-index');
+                    $scope.toggleDropdown(index);
+                });
+            }
         }]);
+
+
 
     </script>
     <style>
@@ -103,6 +113,7 @@
 
         .dropdown:active .dropdown-content {
             display: block;
+            outline: none;
         }
 
         .dropdown.active .dropdown-icon::before {
@@ -170,7 +181,7 @@
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
                     <!-- Dropdown 1 -->
                     <div class="dropdown active">
-                        <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
+                        <button class="dropdown-toggle" data-index="0">
                             <span class="dropdown-icon"></span>CT1 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[0]">
@@ -225,7 +236,7 @@
 
                     <!-- Dropdown 2 -->
                     <div class="dropdown active">
-                        <button class="dropdown-toggle" ng-click="toggleDropdown(1)">
+                        <button class="dropdown-toggle" data-index="1">
                             <span class="dropdown-icon"></span>Form 11 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[1]">
@@ -282,7 +293,7 @@
 
                     <!-- Dropdown 3 -->
                     <div class="dropdown active">
-                        <button class="dropdown-toggle" ng-click="toggleDropdown(2)">
+                        <button class="dropdown-toggle" data-index="2">
                             <span class="dropdown-icon"></span>Form1-Firms - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[2]">
@@ -341,7 +352,7 @@
                         <button class="dropdown-toggle" ng-click="toggleDropdown(3)">
                             <span class="dropdown-icon"></span>Form1-Trusts & Estates - Schema & Notes
                         </button>
-                        <div class="dropdown-content" ng-show="showDropdown[3]">
+                        <div class="dropdown-content" data-index="3">
                             <!-- AngularJS content for Dropdown 4 -->
                             <div class="row">
                                 <div class="col-lg-12 col-md-12">
