@@ -21,8 +21,9 @@
           var vm = this;
           vm.success = false;
           vm.error = false;
-
-          // Define your data structure (vm.data.CT1) here or retrieve it from your JSON file.
+          $http.get('web-resources/data.json').then(function (data) {
+            vm.data = data.data;
+          });
 
           vm.sendData = sendData;
           vm.generateHTML = generateHTML;
