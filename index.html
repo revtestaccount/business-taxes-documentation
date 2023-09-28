@@ -21,9 +21,14 @@
           var vm = this;
           vm.success = false;
           vm.error = false;
+          vm.showDropdown = [];
 
           $http.get('web-resources/data.json').then(function (data) {
             vm.data = data.data;
+            // Initialize the showDropdown array when data is available
+            vm.showDropdown = Array(vm.data.length).fill(false);
+          }).catch(function (error) {
+            console.error('Error loading data:', error);
           });
 
           vm.sendData = sendData;
@@ -39,12 +44,11 @@
             gtag('event', category, { 'event_category': category, 'event_label': event_label });
           }
 
-          // Initialize an array to control the visibility of dropdowns
-          vm.showDropdown = Array(vm.data.length).fill(false);
-
           // Function to toggle the visibility of a dropdown
-          $scope.toggleDropdown = function (index) {
-            vm.showDropdown[index] = !vm.showDropdown[index];
+          vm.toggleDropdown = function (index) {
+            if (vm.data && vm.data.length > index) {
+              vm.showDropdown[index] = !vm.showDropdown[index];
+            }
           };
         }]);
     </script>
