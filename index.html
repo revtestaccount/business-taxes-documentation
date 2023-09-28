@@ -42,7 +42,7 @@
 
           // Function to toggle the visibility of a dropdown
           $scope.toggleDropdown = function (index) {
-            // Toggle the visibility of the clicked dropdown
+            // Toggle the visibility of the dropdown
             $scope.showDropdown[index] = !$scope.showDropdown[index];
 
             // Check if the dropdown is now open
@@ -50,7 +50,7 @@
               // Add the 'active' class to the clicked dropdown
               angular.element(document.querySelector('#dropdown-' + index)).addClass('active');
             } else {
-              // Remove the 'active' class from the clicked dropdown
+              // Remove the 'active' class only from the clicked dropdown
               angular.element(document.querySelector('#dropdown-' + index)).removeClass('active');
             }
           };
