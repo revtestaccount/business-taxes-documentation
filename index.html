@@ -17,44 +17,47 @@
     <script src="web-resources/angular-cookie-law.min.js"></script>
     <script>
       angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
-        angular.module('documentation').controller('DocumentationController', ['$http', '$sce', '$scope', function ($http, $sce, $scope) {
-          var vm = this;
-          vm.success = false;
-          vm.error = false;
-          $http.get('web-resources/data.json').then(function (data) {
-            vm.data = data.data;
-          });
+      angular.module('documentation').controller('DocumentationController', ['$http', '$sce', '$scope', function ($http, $sce, $scope) {
+            var vm = this;
+            vm.success = false;
+            vm.error = false;
 
-          vm.sendData = sendData;
-          vm.generateHTML = generateHTML;
+            $http.get('web-resources/data.json').then(function (data) {
+                vm.data = data.data;
+            });
 
-          function generateHTML(document) {
-            return '<sup>' + document.explainerIndex + '</sup>' + document.explainer;
-          }
+            vm.sendData = sendData;
+            vm.generateHTML = generateHTML;
 
-          function sendData(params) {
-            var category = params[0];
-            var event_label = params[1];
-            gtag('event', category, { 'event_category': category, 'event_label': event_label });
-          }
-
-          // Initialize an array to control the visibility of dropdowns
-          $scope.showDropdown = [false, false, false, false];
-
-          // Function to toggle the visibility of a dropdown
-          $scope.toggleDropdown = function (index) {
-            // Toggle the visibility of the dropdown
-            $scope.showDropdown[index] = !$scope.showDropdown[index];
-
-            // Check if the dropdown is now open
-            if ($scope.showDropdown[index]) {
-              // Add the 'active' class to the clicked dropdown
-              angular.element(document.querySelector('#dropdown-' + index)).addClass('active');
-            } else {
-              // Remove the 'active' class only from the clicked dropdown
-              angular.element(document.querySelector('#dropdown-' + index)).removeClass('active');
+            function generateHTML(document) {
+                return '<sup>' + document.explainerIndex + '</sup>' + document.explainer;
             }
-          };
+
+            function sendData(params) {
+                var category = params[0];
+                var event_label = params[1];
+                gtag('event', category, {
+                    'event_category': category,
+                    'event_label': event_label
+                });
+            }
+
+            // Initialize a variable to keep track of the index of the currently open dropdown
+            $scope.openDropdownIndex = null;
+
+            // Function to toggle the visibility of a dropdown
+            $scope.toggleDropdown = function (index) {
+                // Check if there is an open dropdown and close it
+                if ($scope.openDropdownIndex !== null) {
+                    $scope.showDropdown[$scope.openDropdownIndex] = false;
+                }
+
+                // Toggle the visibility of the clicked dropdown
+                $scope.showDropdown[index] = !$scope.showDropdown[index];
+
+                // Update the index of the currently open dropdown
+                $scope.openDropdownIndex = $scope.showDropdown[index] ? index : null;
+            };
         }]);
     </script>
 
