@@ -45,19 +45,25 @@
         $scope.showDropdown = [false, false, false, false];
 
         // Function to toggle the visibility of a dropdown
+         // Function to toggle the visibility of a dropdown
         $scope.toggleDropdown = function (index) {
-            // Close all other dropdowns
-            for (var i = 0; i < $scope.showDropdown.length; i++) {
-                if (i !== index) {
-                    $scope.showDropdown[i] = false;
-                }
+        // Close all other dropdowns
+        for (var i = 0; i < $scope.showDropdown.length; i++) {
+            if (i !== index) {
+                $scope.showDropdown[i] = false;
+                // Remove the rotate-icon class from other dropdowns' icons
+                angular.element(document.querySelector('#dropdown-icon-' + i)).removeClass('rotate-icon');
             }
-            // Toggle the visibility of the clicked dropdown
-            $scope.showDropdown[index] = !$scope.showDropdown[index];
+        }
+        // Toggle the visibility of the clicked dropdown
+        $scope.showDropdown[index] = !$scope.showDropdown[index];
+
+        // Toggle the rotate-icon class for the clicked dropdown's icon
+        angular.element(document.querySelector('#dropdown-icon-' + index)).toggleClass('rotate-icon');
         };
         }]);
-    </script>
 
+    </script>
     <style>
         .grade {
             background: -webkit-linear-gradient(135deg, #333, #eee, #333, #eee, #333, #eee, #333 , #eee);
@@ -133,6 +139,12 @@
             z-index: 3; /* Lower stacking context */
 
         }
+
+        .rotate-icon {
+            transform: rotate(180deg); /* Rotate the dropdown icon 180 degrees */
+            transition: transform 0.3s ease; /* Apply the rotation smoothly over 0.3 seconds */
+        }
+
     </style>
 </head>
 <body class="revenue">
