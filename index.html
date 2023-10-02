@@ -16,48 +16,46 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-sanitize.min.js"></script>
     <script src="web-resources/angular-cookie-law.min.js"></script>
     <script>
-      angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
-      angular.module('documentation').controller('DocumentationController', ['$http', '$sce', '$scope', function ($http, $sce, $scope) {
-            var vm = this;
-            vm.success = false;
-            vm.error = false;
+        angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
+        angular.module('documentation').controller('DocumentationController', ['$http', '$sce', '$scope', function ($http, $sce, $scope) {
+        var vm = this;
+        vm.success = false;
+        vm.error = false;
 
-            $http.get('web-resources/data.json').then(function (data) {
-                vm.data = data.data;
+        $http.get('web-resources/data.json').then(function (data) {
+            vm.data = data.data;
+        });
+
+        vm.sendData = sendData;
+        vm.generateHTML = generateHTML;
+
+        function generateHTML(document) {
+            return '<sup>' + document.explainerIndex + '</sup>' + document.explainer;
+        }
+
+        function sendData(params) {
+            var category = params[0];
+            var event_label = params[1];
+            gtag('event', category, {
+                'event_category': category,
+                'event_label': event_label
             });
+        }
 
-            vm.sendData = sendData;
-            vm.generateHTML = generateHTML;
+        // Initialize an array to control the visibility of dropdowns
+        $scope.showDropdown = [false, false, false, false];
 
-            function generateHTML(document) {
-                return '<sup>' + document.explainerIndex + '</sup>' + document.explainer;
-            }
-
-            function sendData(params) {
-                var category = params[0];
-                var event_label = params[1];
-                gtag('event', category, {
-                    'event_category': category,
-                    'event_label': event_label
-                });
-            }
-
-            // Initialize a variable to keep track of the index of the currently open dropdown
-            $scope.openDropdownIndex = null;
-
-            // Function to toggle the visibility of a dropdown
-            $scope.toggleDropdown = function (index) {
-                // Check if there is an open dropdown and close it
-                if ($scope.openDropdownIndex !== null) {
-                    $scope.showDropdown[$scope.openDropdownIndex] = false;
+        // Function to toggle the visibility of a dropdown
+        $scope.toggleDropdown = function (index) {
+            // Close all other dropdowns
+            for (var i = 0; i < $scope.showDropdown.length; i++) {
+                if (i !== index) {
+                    $scope.showDropdown[i] = false;
                 }
-
-                // Toggle the visibility of the clicked dropdown
-                $scope.showDropdown[index] = !$scope.showDropdown[index];
-
-                // Update the index of the currently open dropdown
-                $scope.openDropdownIndex = $scope.showDropdown[index] ? index : null;
-            };
+            }
+            // Toggle the visibility of the clicked dropdown
+            $scope.showDropdown[index] = !$scope.showDropdown[index];
+        };
         }]);
     </script>
 
