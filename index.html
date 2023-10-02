@@ -44,7 +44,6 @@
         // Initialize an array to control the visibility of dropdowns
         $scope.showDropdown = [false, false, false, false];
 
-        // Function to toggle the visibility of a dropdown
          // Function to toggle the visibility of a dropdown
         $scope.toggleDropdown = function (index) {
         // Close all other dropdowns
@@ -52,7 +51,7 @@
             if (i !== index) {
                 $scope.showDropdown[i] = false;
                 // Remove the rotate-icon class from other dropdowns' icons
-                angular.element(document.querySelector('#dropdown-icon-' + i)).removeClass('rotate-icon');
+                angular.element(document.querySelectorAll('.dropdown-icon')).removeClass('rotate-icon');
             }
         }
         // Toggle the visibility of the clicked dropdown
@@ -60,8 +59,8 @@
 
         // Toggle the rotate-icon class for the clicked dropdown's icon
         angular.element(document.querySelector('#dropdown-icon-' + index)).toggleClass('rotate-icon');
-        };
-        }]);
+    };
+    }]);
 
     </script>
     <style>
