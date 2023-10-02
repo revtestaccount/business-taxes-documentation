@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="web-resources/css/angular-cookie-law.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-sanitize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-B67s25O0BtEaBt51sApKXeaH4pJ9SDBe8C1bKuylqWZMv5D2GmCpcw+fxXVnPUF5XlSla+cIWoYwO8TUXMfMg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="web-resources/angular-cookie-law.min.js"></script>
     <script>
         angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
@@ -44,23 +45,23 @@
         // Initialize an array to control the visibility of dropdowns
         $scope.showDropdown = [false, false, false, false];
 
-         // Function to toggle the visibility of a dropdown
+        // Function to toggle the visibility of a dropdown
         $scope.toggleDropdown = function (index) {
         // Close all other dropdowns
         for (var i = 0; i < $scope.showDropdown.length; i++) {
             if (i !== index) {
                 $scope.showDropdown[i] = false;
                 // Remove the rotate-icon class from other dropdowns' icons
-                angular.element(document.querySelectorAll('.dropdown-icon')).removeClass('rotate-icon');
+                angular.element(document.querySelectorAll('.dropdown-icon i')).removeClass('rotate-icon');
             }
         }
         // Toggle the visibility of the clicked dropdown
         $scope.showDropdown[index] = !$scope.showDropdown[index];
 
         // Toggle the rotate-icon class for the clicked dropdown's icon
-        angular.element(document.querySelector('#dropdown-icon-' + index)).toggleClass('rotate-icon');
+        angular.element(document.querySelector('#dropdown-icon-' + index + ' i')).toggleClass('rotate-icon');
     };
-    }]);
+}]);
 
     </script>
     <style>
@@ -185,7 +186,9 @@
                     <!-- Dropdown 1 -->
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
-                            <span class="dropdown-icon"></span>CT1 - Schema & Notes
+                            <span class="dropdown-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>CT1 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[0]">
                             <!-- AngularJS content for Dropdown 1 -->
@@ -240,7 +243,9 @@
                     <!-- Dropdown 2 -->
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(1)">
-                            <span class="dropdown-icon"></span>Form 11 - Schema & Notes
+                            <span class="dropdown-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>Form 11 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[1]">
                             <!-- AngularJS content for Dropdown 2 -->
@@ -297,7 +302,9 @@
                     <!-- Dropdown 3 -->
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(2)">
-                            <span class="dropdown-icon"></span>Form1-Firms - Schema & Notes
+                            <span class="dropdown-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>Form1-Firms - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[2]">
                             <!-- AngularJS content for Dropdown 3 -->
@@ -353,7 +360,9 @@
 
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(3)">
-                            <span class="dropdown-icon"></span>Form1-Trusts & Estates - Schema & Notes
+                            <span class="dropdown-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>Form1-Trusts & Estates - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[3]">
                             <!-- AngularJS content for Dropdown 4 -->
