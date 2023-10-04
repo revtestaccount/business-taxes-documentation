@@ -57,23 +57,7 @@
         };
         }]);
     </script>
-    </script>
     <style>
-          [class^="icon-"],
-          [class*=" icon-"] {
-            /* use !important to prevent issues with browser extensions that change fonts */
-            font-family: 'revenue_icons' !important;
-            speak: none;
-            font-style: normal;
-            font-weight: normal;
-            font-variant: normal;
-            text-transform: none;
-            line-height: 1;
-            /* Better Font Rendering =========== */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-          }
-
 
         .grade {
             background: -webkit-linear-gradient(135deg, #333, #eee, #333, #eee, #333, #eee, #333 , #eee);
@@ -119,9 +103,9 @@
             margin-right: 0;
         }
 
-        .icon-arrow-up-regular:before {
-            content: "\e909";
-            /* font-size: 0.8em; */
+        .dropdown-icon::before {
+            content: "\2304";
+            font-size: 0.8em;
             margin-right: 5px;
         }
 
@@ -143,16 +127,18 @@
             z-index:4000;
         }
 
+        .dropdown.active .dropdown-icon::before {
+            content: "\2304";
+            font-size: 0.8em;
+            margin-right: 5px;
+            transform: rotate(180deg);
+        }
+
         /*Adjusted the z-index for the parent containers to create stacking context */
 
         .dropdown-container {
             z-index: 3; /* Lower stacking context */
 
-        }
-
-        .rotate-icon {
-            transform: rotate(180deg); /* Rotate the dropdown icon 180 degrees */
-            transition: transform 0.3s ease; /* Apply the rotation smoothly over 0.3 seconds */
         }
     </style>
 </head>
@@ -195,7 +181,7 @@
                     <!-- Dropdown 1 -->
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
-                                <span class="icon-expando-open" aria-hidden="true"></span>
+                            <span class="dropdown-icon">
                             </span>CT1 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[0]">
@@ -250,7 +236,7 @@
                     <!-- Dropdown 2 -->
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(1)">
-                            <span class="icon-expando-open" aria-hidden="true"></span>
+                            <span class="dropdown-icon">
                             </span>Form 11 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[1]">
@@ -306,7 +292,7 @@
                     <!-- Dropdown 3 -->
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(2)">
-                            <span class="icon-expando-open" aria-hidden="true"></span>
+                            <span class="dropdown-icon">
                             </span>Form1-Firms - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[2]">
@@ -363,7 +349,7 @@
 
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(3)">
-                            <span class="icon-expando-open" aria-hidden="true"></span>
+                            <span class="dropdown-icon">
                             </span>Form1-Trusts & Estates - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[3]">
