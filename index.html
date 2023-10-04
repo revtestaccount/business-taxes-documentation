@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="web-resources/css/angular-cookie-law.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-sanitize.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="web-resources/angular-cookie-law.min.js"></script>
     <script>
         angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
@@ -104,7 +105,8 @@
         }
 
         .dropdown-icon::before {
-            content: "\2304";
+            font-family: FontAwesome;
+            content: "\f107";
             font-size: 0.8em;
             margin-right: 5px;
         }
@@ -125,13 +127,6 @@
         .dropdown.active .dropdown-content {
             display: block;
             z-index:4000;
-        }
-
-        .dropdown.active .dropdown-icon::before {
-            content: "\2304";
-            font-size: 0.8em;
-            margin-right: 5px;
-            transform: rotate(180deg);
         }
 
         /*Adjusted the z-index for the parent containers to create stacking context */
