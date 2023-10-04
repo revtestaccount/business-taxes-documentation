@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="web-resources/css/angular-cookie-law.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-sanitize.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-B67s25O0BtEaBt51sApKXeaH4pJ9SDBe8C1bKuylqWZMv5D2GmCpcw+fxXVnPUF5XlSla+cIWoYwO8TUXMfMg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="web-resources/angular-cookie-law.min.js"></script>
     <script>
         angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
@@ -47,24 +46,35 @@
 
         // Function to toggle the visibility of a dropdown
         $scope.toggleDropdown = function (index) {
-        // Close all other dropdowns
-        for (var i = 0; i < $scope.showDropdown.length; i++) {
-            if (i !== index) {
-                $scope.showDropdown[i] = false;
-                // Remove the rotate-icon class from other dropdowns' icons
-                angular.element(document.querySelectorAll('.dropdown-icon i')).removeClass('rotate-icon');
+            // Close all other dropdowns
+            for (var i = 0; i < $scope.showDropdown.length; i++) {
+                if (i !== index) {
+                    $scope.showDropdown[i] = false;
+                }
             }
-        }
-        // Toggle the visibility of the clicked dropdown
-        $scope.showDropdown[index] = !$scope.showDropdown[index];
-
-        // Toggle the rotate-icon class for the clicked dropdown's icon
-        angular.element(document.querySelector('#dropdown-icon-' + index + ' i')).toggleClass('rotate-icon');
-    };
-}]);
-
+            // Toggle the visibility of the clicked dropdown
+            $scope.showDropdown[index] = !$scope.showDropdown[index];
+        };
+        }]);
+    </script>
     </script>
     <style>
+          [class^="icon-"],
+          [class*=" icon-"] {
+            /* use !important to prevent issues with browser extensions that change fonts */
+            font-family: 'revenue_icons' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+
+
         .grade {
             background: -webkit-linear-gradient(135deg, #333, #eee, #333, #eee, #333, #eee, #333 , #eee);
             -webkit-background-clip: text;
@@ -109,9 +119,9 @@
             margin-right: 0;
         }
 
-        .dropdown-icon::before {
-            content: "\25BC";
-            font-size: 0.8em;
+        .icon-arrow-up-regular:before {
+            content: "\e909";
+            /* font-size: 0.8em; */
             margin-right: 5px;
         }
 
@@ -144,7 +154,6 @@
             transform: rotate(180deg); /* Rotate the dropdown icon 180 degrees */
             transition: transform 0.3s ease; /* Apply the rotation smoothly over 0.3 seconds */
         }
-
     </style>
 </head>
 <body class="revenue">
@@ -186,8 +195,7 @@
                     <!-- Dropdown 1 -->
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
-                            <span class="dropdown-icon">
-                                <i class="fas fa-chevron-down"></i>
+                                <span class="icon-expando-open" aria-hidden="true"></span>
                             </span>CT1 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[0]">
@@ -239,12 +247,10 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Dropdown 2 -->
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(1)">
-                            <span class="dropdown-icon">
-                                <i class="fas fa-chevron-down"></i>
+                            <span class="icon-expando-open" aria-hidden="true"></span>
                             </span>Form 11 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[1]">
@@ -297,13 +303,10 @@
                         </div>
                     </div>
 
-
-
                     <!-- Dropdown 3 -->
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(2)">
-                            <span class="dropdown-icon">
-                                <i class="fas fa-chevron-down"></i>
+                            <span class="icon-expando-open" aria-hidden="true"></span>
                             </span>Form1-Firms - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[2]">
@@ -360,8 +363,7 @@
 
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(3)">
-                            <span class="dropdown-icon">
-                                <i class="fas fa-chevron-down"></i>
+                            <span class="icon-expando-open" aria-hidden="true"></span>
                             </span>Form1-Trusts & Estates - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[3]">
