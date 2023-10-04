@@ -58,18 +58,10 @@
           // Toggle the visibility of the clicked dropdown
           $scope.showDropdown[index] = !$scope.showDropdown[index];
 
-          // Add or remove the 'active' class based on the showDropdown state
-          var dropdownElement = document.querySelector('.dropdown:nth-child(' + (index + 1) + ')');
-          if ($scope.showDropdown[index]) {
-            dropdownElement.classList.add('active');
-          } else {
-            dropdownElement.classList.remove('active');
-          }
         };
         }]);
     </script>
     <style>
-
         .grade {
             background: -webkit-linear-gradient(135deg, #333, #eee, #333, #eee, #333, #eee, #333 , #eee);
             -webkit-background-clip: text;
@@ -150,7 +142,6 @@
 
         .dropdown-container {
             z-index: 3; /* Lower stacking context */
-
         }
     </style>
 </head>
