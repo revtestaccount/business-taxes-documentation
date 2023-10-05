@@ -17,8 +17,8 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="web-resources/angular-cookie-law.min.js"></script>
     <script>
-        angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
-        angular.module('documentation').controller('DocumentationController', ['$http', '$sce', '$scope', function ($http, $sce, $scope) {
+    angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
+    angular.module('documentation').controller('DocumentationController', ['$http', '$sce', '$scope', function ($http, $sce, $scope) {
         var vm = this;
         vm.success = false;
         vm.error = false;
@@ -48,26 +48,34 @@
 
         // Function to toggle the visibility of a dropdown
         $scope.toggleDropdown = function (index) {
-        // Close all other dropdowns
-
-        for (var i = 0; i < $scope.showDropdown.length; i++) {
-            if (i !== index) {
-              $scope.showDropdown[i] = false;
+            // Close all other dropdowns
+            for (var i = 0; i < $scope.showDropdown.length; i++) {
+                if (i !== index) {
+                    $scope.showDropdown[i] = false;
+                }
             }
-          }
 
-          // Toggle the visibility of the clicked dropdown
-          $scope.showDropdown[index] = !$scope.showDropdown[index];
+            // Toggle the visibility of the clicked dropdown
+            $scope.showDropdown[index] = !$scope.showDropdown[index];
 
-          // Add or remove the 'active' class based on the showDropdown state
-          var dropdownElement = document.querySelector('.dropdown:nth-child(' + (index + 1) + ')');
-          if ($scope.showDropdown[index]) {
-            dropdownElement.classList.add('active');
-          } else {
-            dropdownElement.classList.remove('active');
-          }
+            // Reset icons to '\uf107' for all dropdowns and set icon to '\uf106' for the clicked dropdown
+            for (var i = 0; i < $scope.showDropdown.length; i++) {
+                var dropdownElement = document.querySelector('.dropdown:nth-child(' + (i + 1) + ')');
+                dropdownElement.querySelector('.dropdown-icon').innerHTML = '\uf107';
+                if (i === index && $scope.showDropdown[index]) {
+                    dropdownElement.querySelector('.dropdown-icon').innerHTML = '\uf106';
+                    dropdownElement.classList.add('active');
+                } else {
+                    dropdownElement.classList.remove('active');
+                }
+            }
         };
-        }]);
+    }]);
+</script>
+
+
+
+    }]);
     </script>
     <style>
         .grade {
