@@ -35,13 +35,13 @@
 
         /* Active state */
         .dropdown.active .dropdown-icon::before {
-            font-family: FontAwesome;
+            font-family: FontAwesome !important;
             content: "\f106" !important;
         }
 
         /* Initial state */
         .dropdown .dropdown-icon::before {
-            font-family: FontAwesome;
+            font-family: FontAwesome !important;
             content: "\f107" !important;
             font-size: 0.8em;
             margin-right: 5px;
