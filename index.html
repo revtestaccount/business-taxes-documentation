@@ -44,6 +44,13 @@
     // Initialize an array to control the visibility of dropdowns
     $scope.showDropdown = [false, false, false, false];
 
+    // Set the initial icon state to "f107" for all dropdowns
+    for (var i = 0; i < $scope.showDropdown.length; i++) {
+    var dropdownIcon = document.querySelector('.dropdown:nth-child(' + (i + 1) + ') .dropdown-icon');
+    dropdownIcon.style.content = "f107";
+    }
+
+
     // Function to toggle the visibility of a dropdown
     $scope.toggleDropdown = function (index) {
     // Close all other dropdowns
@@ -56,18 +63,13 @@
     // Toggle the visibility of the clicked dropdown
     $scope.showDropdown[index] = !$scope.showDropdown[index];
 
+
     // Add or remove the 'active' class based on the showDropdown state
     var dropdownElement = document.querySelector('.dropdown:nth-child(' + (index + 1) + ')');
     if ($scope.showDropdown[index]) {
     dropdownElement.classList.add('active');
     } else {
     dropdownElement.classList.remove('active');
-    }
-
-    // Set the initial icon state to "f107" for all dropdowns
-    for (var i = 0; i < $scope.showDropdown.length; i++) {
-    var dropdownIcon = document.querySelector('.dropdown:nth-child(' + (i + 1) + ') .dropdown-icon');
-    dropdownIcon.style.content = "f107";
     }
     }
     }]);
