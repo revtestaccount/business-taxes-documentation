@@ -17,58 +17,60 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-sanitize.min.js"></script>
     <script src="web-resources/angular-cookie-law.min.js"></script>
     <script>
-        angular.module('documentation', ['angular-cookie-law', 'ngSanitize']);
-        angular.module('documentation').controller('DocumentationController', ['$http', '$sce', '$scope', function ($http, $sce, $scope) {
-            var vm = this;
-            vm.success = false;
-            vm.error = false;
-            $http.get('web-resources/data.json').then(function (data) {
-                vm.data = data.data;
-            });
+    angular.module('documentation', ['angular-cookie-law', 'ngSanitize']).controller('DocumentationController', ['$http', '$sce', '$scope', function ($http, $sce, $scope) {
+    var vm = this;
+    vm.success = false;
+    vm.error = false;
+    $http.get('web-resources/data.json').then(function (data) {
+    vm.data = data.data;
+    });
 
-            vm.sendData = sendData;
-            vm.generateHTML = generateHTML;
+    vm.sendData = sendData;
+    vm.generateHTML = generateHTML;
 
-            function generateHTML(document) {
-                return '<sup>' + document.explainerIndex + '</sup>' + document.explainer;
-            }
+    function generateHTML(document) {
+    return '<sup>' + document.explainerIndex + '</sup>' + document.explainer;
+    }
 
-            function sendData(params) {
-                var category = params[0];
-                var event_label = params[1];
-                gtag('event', category, { 'event_category': category, 'event_label': event_label });
-            }
+    function sendData(params) {
+    var category = params[0];
+    var event_label = params[1];
+    gtag('event', category, {
+    'event_category': category,
+    'event_label': event_label
+    });
+    }
 
-            // Initialize an array to control the visibility of dropdowns
-            $scope.showDropdown = [false, false, false, false];
+    // Initialize an array to control the visibility of dropdowns
+    $scope.showDropdown = [false, false, false, false];
 
-            // Function to toggle the visibility of a dropdown
-            $scope.toggleDropdown = function (index) {
-                // Close all other dropdowns
-                for (var i = 0; i < $scope.showDropdown.length; i++) {
-                    if (i !== index) {
-                        $scope.showDropdown[i] = false;
-                    }
-                }
-                // Toggle the visibility of the clicked dropdown
-                $scope.showDropdown[index] = !$scope.showDropdown[index];
+    // Function to toggle the visibility of a dropdown
+    $scope.toggleDropdown = function (index) {
+    // Close all other dropdowns
+    for (var i = 0; i < $scope.showDropdown.length; i++) {
+    if (i !== index) {
+    $scope.showDropdown[i] = false;
+    }
+    }
 
-                // Add or remove the 'active' class based on the showDropdown state
-                var dropdownElement = document.querySelector('.dropdown:nth-child(' + (index + 1) + ')');
-                if ($scope.showDropdown[index]) {
-                    dropdownElement.classList.add('active');
-                    // Change the content to F107 when dropdown is active
-                    dropdownElement.querySelector('.dropdown-icon').textContent = '\uf107';
-                } else {
-                    dropdownElement.classList.remove('active');
-                    // Change the content to F106 when dropdown is inactive
-                    dropdownElement.querySelector('.dropdown-icon').textContent = '\uf106';
-                }
-            };
-        }]);
+    // Toggle the visibility of the clicked dropdown
+    $scope.showDropdown[index] = !$scope.showDropdown[index];
 
-        // Simulate a click event on the first dropdown to set the initial state to F107
-            document.querySelector('.dropdown:first-child').click();
+    // Add or remove the 'active' class based on the showDropdown state
+    var dropdownElement = document.querySelector('.dropdown:nth-child(' + (index + 1) + ')');
+    if ($scope.showDropdown[index]) {
+    dropdownElement.classList.add('active');
+    } else {
+    dropdownElement.classList.remove('active');
+    }
+
+    // Set the initial icon state to "f107" for all dropdowns
+    for (var i = 0; i < $scope.showDropdown.length; i++) {
+    var dropdownIcon = document.querySelector('.dropdown:nth-child(' + (i + 1) + ') .dropdown-icon');
+    dropdownIcon.style.content = "f107";
+    }
+    }
+    }]);
     </script>
     <style>
         .grade {
