@@ -32,16 +32,6 @@
             margin-right: 0;
         }
 
-        /* Define styles for F107 and F106 icons */
-        .fa-icon-F107::before {
-          content: "\f107";
-        }
-
-        .fa-icon-F106::before {
-          content: "\f106";
-        }
-
-
         /* Active state */
         .dropdown.active .dropdown-icon::before {
             font-family: FontAwesome;

@@ -43,11 +43,8 @@
             });
         }
 
-
-         // Initialize an array to control the visibility of dropdowns
+        // Initialize an array to control the visibility of dropdowns
         $scope.showDropdown = [false, false, false, false];
-
-
 
         // Function to toggle the visibility of a dropdown
         $scope.toggleDropdown = function (index) {
@@ -60,6 +57,15 @@
 
         // Toggle the visibility of the clicked dropdown
         $scope.showDropdown[index] = !$scope.showDropdown[index];
+
+        // Add or remove the 'active' class based on the showDropdown state
+        var dropdownElement = document.querySelector('.dropdown:nth-child(' + (index + 1) + ')');
+        if ($scope.showDropdown[index]) {
+        dropdownElement.classList.add('active');
+        } else {
+        dropdownElement.classList.remove('active');
+        }
+        };
         }]);
 </script>
     <style>
@@ -111,11 +117,10 @@
                 <br>
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
                     <!-- Dropdown 1 -->
-                    <div class="dropdown" ng-class="{ 'active': showDropdown[0] }">
+                    <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
-                            <span class="dropdown-icon">
-                            <i class="fa" ng-class="{ 'fa-icon-F107': !showDropdown[0], 'fa-icon-F106': showDropdown[0] }"></i>
-                            </span>CT1 - Schema & Notes
+                            <span class="dropdown-icon">&#xf107;</span>
+                            CT1 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[0]">
                             <!-- AngularJS content for Dropdown 1 -->
@@ -166,13 +171,11 @@
                             </div>
                         </div>
                     </div>
-                    </div>
                     <!-- Dropdown 2 -->
-                    <div class="dropdown" ng-class="{ 'active': showDropdown[1] }">
+                    <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(1)">
-                            <span class="dropdown-icon">
-                            <i class="fa" ng-class="{ 'fa-icon-F107': !showDropdown[1], 'fa-icon-F106': showDropdown[1] }"></i>
-                            </span>Form 11 - Schema & Notes
+                            <span class="dropdown-icon">&#xf107;</span>
+                            Form 11 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[1]">
                             <!-- AngularJS content for Dropdown 2 -->
@@ -225,11 +228,10 @@
                     </div>
 
                     <!-- Dropdown 3 -->
-                    <div class="dropdown" ng-class="{ 'active': showDropdown[2] }">
+                    <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(2)">
-                            <span class="dropdown-icon">
-                            <i class="fa" ng-class="{ 'fa-icon-F107': !showDropdown[2], 'fa-icon-F106': showDropdown[2] }"></i>
-                            </span>Form1-Firms - Schema & Notes
+                            <span class="dropdown-icon">&#xf107;</span>
+                            Form1-Firms - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[2]">
                             <!-- AngularJS content for Dropdown 3 -->
@@ -283,11 +285,10 @@
 
                     <!-- Dropdown 4 -->
 
-                    <div class="dropdown" ng-class="{ 'active': showDropdown[3] }">
+                    <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(3)">
-                            <span class="dropdown-icon">
-                            <i class="fa" ng-class="{ 'fa-icon-F107': !showDropdown[3], 'fa-icon-F106': showDropdown[3] }"></i>
-                            </span>Form1-Trusts & Estates - Schema & Notes
+                            <span class="dropdown-icon">&#xf107;</span>
+                            Form1-Trusts & Estates - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[3]">
                             <!-- AngularJS content for Dropdown 4 -->
