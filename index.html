@@ -40,11 +40,18 @@
             gtag('event', category, {
                 'event_category': category,
                 'event_label': event_label
-            });
+            }); 
         }
 
-        // Initialize an array to control the visibility of dropdowns
-        $scope.showDropdown = [false, false, false, false];
+
+        // Initialize an array to control the visibility of dropdowns and set initial icons to F107
+        $scope.showDropdown = [
+            { active: false, icon: "\f107" },
+            { active: false, icon: "\f107" },
+            { active: false, icon: "\f107" },
+            { active: false, icon: "\f107" }
+        ];
+
 
         // Function to toggle the visibility of a dropdown
         $scope.toggleDropdown = function (index) {
@@ -120,7 +127,7 @@
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
                             <span class="dropdown-icon">
-                                <i class="fa fa-107 custom-icon"></i>
+
                             </span>CT1 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[0]">
@@ -176,7 +183,7 @@
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(1)">
                             <span class="dropdown-icon">
-                                <i class="fa fa-107 custom-icon"></i>
+
                             </span>Form 11 - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[1]">
@@ -233,7 +240,7 @@
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(2)">
                             <span class="dropdown-icon">
-                                <i class="fa fa-107 custom-icon"></i>
+
                             </span>Form1-Firms - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[2]">
@@ -291,7 +298,7 @@
                     <div class="dropdown active">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(3)">
                             <span class="dropdown-icon">
-                                <i class="fa fa-107 custom-icon"></i>
+
                             </span>Form1-Trusts & Estates - Schema & Notes
                         </button>
                         <div class="dropdown-content" ng-show="showDropdown[3]">

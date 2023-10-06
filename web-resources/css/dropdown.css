@@ -32,11 +32,6 @@
             margin-right: 0;
         }
 
-        .custom-icon {
-            font-family: FontAwesome;
-            content: "\f107";
-        }
-
 
         /* Active state */
         .dropdown.active .dropdown-icon::before {
@@ -46,8 +41,8 @@
 
         /* Initial state */
         .dropdown .dropdown-icon::before {
-            font-family: FontAwesome;
-            content: "\f107";
+            font-family: FontAwesome !important;
+            content: "\f107" !important;
             font-size: 0.8em;
             margin-right: 5px;
         }
