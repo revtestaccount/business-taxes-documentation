@@ -41,6 +41,7 @@
         /* Initial state */
         .dropdown .dropdown-icon::before {
             font-family: FontAwesome;
+            content: "\f107";
             font-size: 0.8em;
             margin-right: 5px;
         }
