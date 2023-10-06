@@ -40,17 +40,13 @@
             gtag('event', category, {
                 'event_category': category,
                 'event_label': event_label
-            }); 
+            });
         }
 
 
-        // Initialize an array to control the visibility of dropdowns and set initial icons to F107
-        $scope.showDropdown = [
-            { active: false, icon: "\f107" },
-            { active: false, icon: "\f107" },
-            { active: false, icon: "\f107" },
-            { active: false, icon: "\f107" }
-        ];
+         // Initialize an array to control the visibility of dropdowns
+        $scope.showDropdown = [false, false, false, false];
+
 
 
         // Function to toggle the visibility of a dropdown
@@ -124,7 +120,7 @@
                 <br>
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
                     <!-- Dropdown 1 -->
-                    <div class="dropdown active">
+                    <div class="dropdown">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
                             <span class="dropdown-icon">
 
@@ -180,7 +176,7 @@
                         </div>
                     </div>
                     <!-- Dropdown 2 -->
-                    <div class="dropdown active">
+                    <div class="dropdown">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(1)">
                             <span class="dropdown-icon">
 
@@ -237,7 +233,7 @@
                     </div>
 
                     <!-- Dropdown 3 -->
-                    <div class="dropdown active">
+                    <div class="dropdown">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(2)">
                             <span class="dropdown-icon">
 
@@ -295,7 +291,7 @@
 
                     <!-- Dropdown 4 -->
 
-                    <div class="dropdown active">
+                    <div class="dropdown">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(3)">
                             <span class="dropdown-icon">
 
