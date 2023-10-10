@@ -41,15 +41,11 @@
         }
 
         /* Active state */
-        .dropdown.active .dropdown-icon::before {
-            content: none; /* Hide ::before icon in active state */
-        }
-
-        .dropdown.active .dropdown-icon::after {
+        .dropdown .dropdown-content.ng-show .dropdown-icon::before {
             font-family: FontAwesome;
             content: "\f106";
             font-size: 0.8em;
-            margin-left: 5px; /* Add margin between text and ::after icon */
+            margin-right: 5px;
         }
 
         .dropdown-content {
