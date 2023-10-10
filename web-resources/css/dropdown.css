@@ -32,20 +32,20 @@
             margin-right: 0;
         }
 
-        /* Active state */
-        .dropdown.active .dropdown-icon::before {
-            font-family: FontAwesome;
-            content: "\f106";
-        }
-
         /* Initial state */
-        .dropdown .dropdown-icon::before {
+        .dropdown.active .dropdown-icon::before {
             font-family: FontAwesome;
             content: "\f107";
             font-size: 0.8em;
             margin-right: 5px;
         }
 
+
+        /* Active state */
+        .dropdown.active .dropdown-icon::after {
+            font-family: FontAwesome;
+            content: "\f106";
+        }
 
         .dropdown-content {
             display: none;
