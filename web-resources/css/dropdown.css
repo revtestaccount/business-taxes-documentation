@@ -33,18 +33,23 @@
         }
 
         /* Initial state */
-        .dropdown.active .dropdown-icon::before {
+        .dropdown .dropdown-icon::before {
             font-family: FontAwesome;
             content: "\f107";
             font-size: 0.8em;
             margin-right: 5px;
         }
 
-
         /* Active state */
+        .dropdown.active .dropdown-icon::before {
+            content: none; /* Hide ::before icon in active state */
+        }
+
         .dropdown.active .dropdown-icon::after {
             font-family: FontAwesome;
             content: "\f106";
+            font-size: 0.8em;
+            margin-left: 5px; /* Add margin between text and ::after icon */
         }
 
         .dropdown-content {
