@@ -107,9 +107,8 @@
                 </div>
                 <br>
                 <div data-ng-controller="DocumentationController as vm" class="ng-scope">
-                    <!-- push to test attempt 3 -->
                     <!-- Dropdown 1 -->
-                    <div class="dropdown">
+                    <div class="dropdown" ng-class="{ 'active': showDropdown[0] }">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(0)">
                             <span class="dropdown-icon"></span>
                             CT1 - Schema & Notes
@@ -164,7 +163,7 @@
                         </div>
                     </div>
                     <!-- Dropdown 2 -->
-                    <div class="dropdown">
+                    <div class="dropdown" ng-class="{ 'active': showDropdown[1] }">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(1)">
                             <span class="dropdown-icon"></span>
                             Form 11 - Schema & Notes
@@ -220,7 +219,7 @@
                     </div>
 
                     <!-- Dropdown 3 -->
-                    <div class="dropdown">
+                    <div class="dropdown" ng-class="{ 'active': showDropdown[2] }">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(2)">
                             <span class="dropdown-icon"></span>
                             Form1-Firms - Schema & Notes
@@ -277,7 +276,7 @@
 
                     <!-- Dropdown 4 -->
 
-                    <div class="dropdown">
+                    <div class="dropdown" ng-class="{ 'active': showDropdown[3] }">
                         <button class="dropdown-toggle" ng-click="toggleDropdown(3)">
                             <span class="dropdown-icon"></span>
                             Form1-Trusts & Estates - Schema & Notes
